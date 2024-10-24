@@ -38,24 +38,15 @@ spec:
           main:
             protocol: http
             port: 9001
-    ingress:
-      main:
-        enabled: true
-        integrations:
-          # traefik:
-          #   enabled: true
-          #   middlewares:
-          #     - name: local
-          #       namespace: traefik
-          #     - name: bouncer
-          #       namespace: traefik
-          #   entrypoints:
-          #     - websecure
-          certManager:
-            enabled: true
-            certificateIssuer: cloudflare
-        hosts:
-          - host: cloud.${BASE_DOMAIN}
-            paths:
-              - path: /
-                pathType: Prefix                                
+    # ingress:
+    #   main:
+    #     enabled: true
+    #     integrations:
+    #       certManager:
+    #         enabled: true
+    #         certificateIssuer: cloudflare
+    #     hosts:
+    #       - host: cloud.${BASE_DOMAIN}
+    #         paths:
+    #           - path: /
+    #             pathType: Prefix                                
