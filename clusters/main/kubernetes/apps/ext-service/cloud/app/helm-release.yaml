@@ -42,12 +42,19 @@ spec:
       main:
         enabled: true
         integrations:
+          traefik:
+            enabled: true
+            # middlewares:
+            #   - name: local
+            #     namespace: traefik
+            #   - name: bouncer
+            #     namespace: traefik
           certManager:
             enabled: true
             certificateIssuer: cloudflare
         hosts:
-          - host: cloud.${BASE_DOMAIN}
+          - host: plex.${BASE_DOMAIN}
             paths:
               - path: /
-                pathType: Prefix 
+                pathType: Prefix
                                  
