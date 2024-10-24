@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - ext-service
   - kubernetes-dashboard/ks.yaml
-  - media
