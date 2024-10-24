@@ -23,4 +23,11 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
-  values: {}
+  values:
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${SPEGEL_IP}
+        ports:
+          main:
+            port: 80
