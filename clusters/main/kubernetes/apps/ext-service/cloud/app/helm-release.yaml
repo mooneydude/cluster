@@ -53,7 +53,7 @@ spec:
             enabled: true
             certificateIssuer: cloudflare
         hosts:
-          - host: plex.${BASE_DOMAIN}
+          - host: cloud.${BASE_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
