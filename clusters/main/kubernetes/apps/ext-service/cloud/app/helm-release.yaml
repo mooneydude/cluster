@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: ext-service-cloud
+  name: cloud
   namespace: ext-service
 spec:
   interval: 15m
