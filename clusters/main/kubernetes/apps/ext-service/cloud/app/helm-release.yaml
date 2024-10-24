@@ -38,16 +38,16 @@ spec:
           main:
             protocol: http
             port: 9001
-    # ingress:
-    #   main:
-    #     enabled: true
-    #     integrations:
-    #       certManager:
-    #         enabled: true
-    #         certificateIssuer: cloudflare
-    #     hosts:
-    #       - host: cloud.${BASE_DOMAIN}
-    #         paths:
-    #           - path: /
-    #             pathType: Prefix 
-    #                               
+    ingress:
+      main:
+        enabled: true
+        integrations:
+          certManager:
+            enabled: true
+            certificateIssuer: cloudflare
+        hosts:
+          - host: cloud.${BASE_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix 
+                                 
