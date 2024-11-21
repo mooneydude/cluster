@@ -208,7 +208,7 @@ spec:
       data:
         enabled: true
         type: nfs
-        server: 192.168.68.109
+        server: ${TRUENAS_IP}
         path: /mnt/data1/thecloud
         mountPath: /var/www/html/data             
       # data:     
