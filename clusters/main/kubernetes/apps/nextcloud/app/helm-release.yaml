@@ -205,15 +205,21 @@ spec:
               enabled: true                          
             src:
               enabled: true
-      data:     
-        volsync:
-          - name: b2
-            type: restic
-            credentials: s3
-            dest:
-              enabled: true                          
-            src:
-              enabled: true
+      data:
+        enabled: true
+        type: nfs
+        server: 192.168.68.109
+        path: /mnt/data1/thecloud
+        mountPath: /var/www/html/data             
+      # data:     
+      #   volsync:
+      #     - name: b2
+      #       type: restic
+      #       credentials: s3
+      #       dest:
+      #         enabled: true                          
+      #       src:
+      #         enabled: true
     cnpg:
       main:
         password: ${NEXTCLOUD_CNPG_PWD}
