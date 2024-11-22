@@ -33,6 +33,10 @@ spec:
     global:
       stopAll: false  
 
+    service:
+      tcp:
+        loadBalancerIP: ${HASS_IP}
+
     credentials:
       s3:
         type: s3
