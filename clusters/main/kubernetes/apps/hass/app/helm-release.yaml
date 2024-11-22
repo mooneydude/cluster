@@ -34,7 +34,8 @@ spec:
       stopAll: false  
 
     service:
-      tcp:
+      main:
+        type: LoadBalancer
         loadBalancerIP: ${HASS_IP}
 
     credentials:
