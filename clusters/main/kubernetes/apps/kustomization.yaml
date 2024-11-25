@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - hass/ks.yaml
-  - netdata/ks.yaml
+  #- netdata/ks.yaml
