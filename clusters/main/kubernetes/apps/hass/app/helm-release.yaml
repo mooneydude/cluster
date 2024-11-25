@@ -103,13 +103,13 @@ spec:
           # revision: "1"
 
     workload:
-          main:
-            podSpec:
-              containers:
-                main:
-                  securityContext:
-                    allowPrivilegeEscalation: true
-                    privileged: false
-                    capabilities:
-                      add:
-                        - NET_RAW          
+      main:
+        podSpec:
+          containers:
+            main:
+              securityContext:
+                allowPrivilegeEscalation: true
+                privileged: false
+                capabilities:
+                  add:
+                    - NET_RAW          
