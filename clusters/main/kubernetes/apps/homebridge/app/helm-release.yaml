@@ -37,3 +37,7 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: ${HB_IP}
+        ports:
+          main:
+            protocol: http
+            port: 8581
