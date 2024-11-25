@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - hass/ks.yaml
-  #- nextcloud/ks.yaml
-  #- homebridge/ks.yaml
+  - homebridge/ks.yaml
