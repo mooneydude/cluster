@@ -39,5 +39,6 @@ spec:
         loadBalancerIP: ${HB_IP}
         ports:
           main:
+            # this works
             protocol: http
             port: 8581
