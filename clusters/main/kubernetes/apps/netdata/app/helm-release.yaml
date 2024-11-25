@@ -32,3 +32,14 @@ spec:
    values:
       global:
          stopAll: false
+
+      securityContext:
+      container:
+         readOnlyRootFilesystem: false
+         runAsNonRoot: false
+         # capabilities:
+         #    add:
+         #    - SYS_PTRACE
+         runAsUser: 0
+         runAsGroup: 0
+         fsGroup: 201         
