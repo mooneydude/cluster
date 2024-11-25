@@ -7,28 +7,28 @@ metadata:
    namespace: netdata
 spec:
    interval: 15m
-chart:
-   spec:
-      chart: netdata
-      version: 11.4.5
-      sourceRef:
-         kind: HelmRepository
-         name: truecharts
-         namespace: flux-system
-      interval: 15m
-timeout: 20m
-maxHistory: 3
-install:
-   createNamespace: true
-   remediation:
-      retries: 3
-upgrade:
-   cleanupOnFail: true
-   remediation:
-      retries: 3
-uninstall:
-   keepHistory: false
+   chart:
+      spec:
+         chart: netdata
+         version: 11.4.5
+         sourceRef:
+            kind: HelmRepository
+            name: truecharts
+            namespace: flux-system
+         interval: 15m
+   timeout: 20m
+   maxHistory: 3
+   install:
+      createNamespace: true
+      remediation:
+         retries: 3
+   upgrade:
+      cleanupOnFail: true
+      remediation:
+         retries: 3
+   uninstall:
+      keepHistory: false
 
-values:
-   global:
-      stopAll: false
+   values:
+      global:
+         stopAll: false
