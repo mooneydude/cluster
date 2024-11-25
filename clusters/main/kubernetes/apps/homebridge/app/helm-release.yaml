@@ -4,8 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: homebridge
-  global:
-    namespace: default
+  namespace: default
 spec:
   interval: 15m
   chart:
@@ -32,8 +31,9 @@ spec:
 
   values:
     global:
-    stopAll: false
+      stopAll: false
 
+    TZ: America/Chicago
     service:
       main:
         type: LoadBalancer
