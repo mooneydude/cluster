@@ -30,8 +30,11 @@ spec:
     keepHistory: false
 
   values:
+    # Enable host networking for direct network access
+    hostNetwork: true
+    
     global:
-      stopAll: false  
+      stopAll: false 
 
     service:
       main:
