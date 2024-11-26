@@ -30,8 +30,8 @@ spec:
     keepHistory: false
 
   values:
-    # Enable host networking for direct network access
-    hostNetwork: true
+    # Enable host networking for direct network access. True breaks K8s secruirty.
+    # hostNetwork: true
     
     global:
       stopAll: false 
