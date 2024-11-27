@@ -29,8 +29,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+
     global:
-      stopAll: false    
+      stopAll: true
+      
     TZ: America/Chicago
     credentials:
       s3:
