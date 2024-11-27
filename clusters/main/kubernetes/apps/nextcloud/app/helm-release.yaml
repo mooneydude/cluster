@@ -31,7 +31,7 @@ spec:
   values:
 
     global:
-      stopAll: true
+      stopAll: false
       
     TZ: America/Chicago
     credentials:
@@ -229,7 +229,7 @@ spec:
           postgresql:
               max_slot_wal_keep_size: 10GB
               wal_compression: lz4
-        mode: recovery
+        #mode: recovery
         backups:
           enabled: true
           credentials: s3
