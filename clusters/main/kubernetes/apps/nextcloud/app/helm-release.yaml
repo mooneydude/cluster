@@ -31,14 +31,14 @@ spec:
   values:
 
     global:
-      stopAll: true
+      stopAll: false
       
     TZ: America/Chicago
     credentials:
       s3:
         type: s3
         url: "${S3URL}"
-        bucket: "${S3PREFIX}-nextcloud-app" #new bucket
+        bucket: "${S3PREFIX}-nextcloud-app"
         accessKey: "${S3ID}"
         secretKey: "${S3KEY}"
         encrKey: "${S3KEY}" 
