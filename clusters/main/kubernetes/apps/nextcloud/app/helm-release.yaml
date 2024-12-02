@@ -35,7 +35,7 @@ spec:
       s3:
         type: s3
         url: "${S3URL}"
-        bucket: "${S3PREFIX}-nextcloud-app"
+        bucket: "${S3PREFIX}-nc-app"
         accessKey: "${S3ID}"
         secretKey: "${S3KEY}"
         encrKey: "${S3KEY}"   
@@ -51,24 +51,24 @@ spec:
         username: ${COLLABORA_USER}
         password: ${COLLABORA_PWD}
     persistence:
-      html:    
-        volsync:
-          - name: b2
-            type: restic
-            credentials: s3
-            dest:
-              enabled: true                          
-            src:
-              enabled: true
-      config:  
-        volsync:
-          - name: b2
-            type: restic
-            credentials: s3
-            dest:
-              enabled: true                          
-            src:
-              enabled: true
+      # html:    
+      #   volsync:
+      #     - name: b2
+      #       type: restic
+      #       credentials: s3
+      #       dest:
+      #         enabled: true                          
+      #       src:
+      #         enabled: true
+      # config:  
+      #   volsync:
+      #     - name: b2
+      #       type: restic
+      #       credentials: s3
+      #       dest:
+      #         enabled: true                          
+      #       src:
+      #         enabled: true
       data:
         enabled: true
         type: nfs
@@ -84,24 +84,24 @@ spec:
       #         enabled: true                          
       #       src:
       #         enabled: true
-    cnpg:
-      main:
-        password: ${NEXTCLOUD_CNPG_PWD}
-        cluster:
-          postgresql:
-              max_slot_wal_keep_size: 1GB
-              wal_compression: lz4
-        #mode: recovery
-        mode: standalone
-        backups:
-          enabled: true
-          credentials: s3
-          #revision: "1"
-          retentionPolicy: "3d"
-        recovery:
-          method: object_store
-          credentials: s3
-          #revision: "1"  
+    # cnpg:
+    #   main:
+    #     password: ${NEXTCLOUD_CNPG_PWD}
+    #     cluster:
+    #       postgresql:
+    #           max_slot_wal_keep_size: 1GB
+    #           wal_compression: lz4
+    #     #mode: recovery
+    #     mode: standalone
+    #     backups:
+    #       enabled: true
+    #       credentials: s3
+    #       #revision: "1"
+    #       retentionPolicy: "3d"
+    #     recovery:
+    #       method: object_store
+    #       credentials: s3
+    #       #revision: "1"  
     redis:
       password: ${NEXTCLOUD_REDIS_PWD}              
     ingress:
