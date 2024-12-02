@@ -1,92 +1,132 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: nextcloud
-  namespace: nextcloud
+    name: nextcloud
+    namespace: nextcloud
 spec:
-  interval: 15m
-  chart:
-    spec:
-      chart: nextcloud
-      version: 32.2.12
-      sourceRef:
-        kind: HelmRepository
-        name: truecharts
-        namespace: flux-system
-      interval: 15m
-  timeout: 20m
-  maxHistory: 3
-  install:
-    createNamespace: true
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      retries: 3
-  uninstall:
-    keepHistory: false
-  values:
-    global:
-      stopAll: false
-    TZ: America/Chicago
-    credentials:
-      s3:
-        type: s3
-        url: "${S3URL}"
-        bucket: "${S3PREFIX}-nc-app"
-        accessKey: "${S3ID}"
-        secretKey: "${S3KEY}"
-        encrKey: "${S3KEY}"   
-    nextcloud:
+    interval: 5m
+    chart:
+        spec:
+            # renovate: registryUrl=https://charts.truechartsoci.org
+            chart: nextcloud
+            version: 32.2.12
+            sourceRef:
+                kind: HelmRepository
+                name: truecharts
+                namespace: flux-system
+            interval: 5m
+    install:
+        createNamespace: true
+        crds: CreateReplace
+        remediation:
+            retries: 3
+    upgrade:
+        crds: CreateReplace
+        remediation:
+            retries: 3
+    timeout: 20m
+    values:
+      global:
+        stopAll: false
       credentials:
-        initialAdminUser: ${NEXTCLOUD_USER}
-        initialAdminPassword: ${NEXTCLOUD_PWD}
-      general:
-        default_phone_region: US
-        accessIP: ${TRAEFIK_IP}
-      collabora:
-        enabled: true
-        username: ${COLLABORA_USER}
-        password: ${COLLABORA_PWD}
-    persistence:
-      html:    
-        volsync:
-          - name: b2
+        s3:
+          type: s3
+          url: "${S3URL}"
+          bucket: "${S3PREFIX}-nextcloud-app"
+          accessKey: "${S3ID}"
+          secretKey: "${S3KEY}"
+          encrKey: "${S3KEY}"
+      ingress:
+        main:
+          enabled: true
+          integrations:
+            traefik:
+              enabled: true
+              # middlewares:
+              #   - name: bouncer 
+              #     namespace: traefik
+              #   - name: local
+              #     namespace: traefik
+          hosts:
+            - host: next.${DOMAIN_0}
+              paths:
+                - path: /
+                  pathType: Prefix 
+          tls:
+            - hosts:
+                - next.${DOMAIN_0}
+              clusterIssuer: domain-0-wildcard
+      cnpg:
+        main:
+          cluster:
+            singleNode: false
+          pgVersion: 15
+          #mode: recovery
+          backups:
+            enabled: true
+            credentials: s3
+            scheduledBackups:
+              - name: daily-backup
+                schedule: "0 5 0 * * *"
+                backupOwnerReference: self
+                immediate: true
+                suspend: false
+          recovery:
+            method: object_store
+            credentials: s3
+      persistence:
+        config:
+          volsync:
+          - name: config
             type: restic
             credentials: s3
             dest:
-              enabled: true                          
+              enabled: true
             src:
-              enabled: true    
-      data:
-        enabled: true
-        type: nfs
-        server: ${TRUENAS_IP}
-        path: /mnt/data1/nc_userdata
-        mountPath: /var/www/html/data               
-      # data:     
-      #   volsync:
-      #     - name: b2
-      #       type: restic
-      #       credentials: s3
-      #       dest:
-      #         enabled: true                          
-      #       src:
-      #         enabled: true          
-    ingress:
-      main:
-        enabled: true
-        integrations:
-          traefik:
-            enabled: true
-        tls:
-          - hosts:
-              - nextcloud.${DOMAIN_0}
-            clusterIssuer: domain-0-wildcard
-        hosts:
-          - host: nextcloud.${DOMAIN_0}
-            paths:
-              - path: /
-                pathType: Prefix
+              enabled: true
+              trigger:
+                schedule: 10 1 * * *
+        # data:
+        #   enabled: true
+        #   type: nfs
+        #   path: ${NEXTCLOUD_NFS_PATH}
+        #   server: ${CONFIG_TRUENAS_IP}
+        data:
+          enabled: true
+          type: nfs
+          server: ${TRUENAS_IP}
+          path: /mnt/data1/nc_userdata
+          mountPath: /var/www/html/data               
+        html:
+          volsync:
+          - name: html
+            type: restic
+            credentials: s3
+            dest:
+              enabled: true
+            src:
+              enabled: true
+              trigger:
+                schedule: 20 1 * * *
+      nextcloud:
+        collabora:
+          enabled: true
+          password: "${NEXTCLOUD_PWD}"
+        credentials:
+          initialAdminPassword: "${NEXTCLOUD_PWD}"
+          initialAdminUser: "${NEXTCLOUD_USER}"
+        general:
+          accessIP: ${TRAEFIK_IP}
+          default_phone_region: US
+        previews:
+          providers:
+          - BMP
+          - GIF
+          - JPEG
+          - Krita
+          - MarkDown
+          - MP3
+          - OpenDocument
+          - PNG
+          - TXT
+          - XBitmap
