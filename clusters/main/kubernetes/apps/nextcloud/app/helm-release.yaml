@@ -51,24 +51,6 @@ spec:
         username: ${COLLABORA_USER}
         password: ${COLLABORA_PWD}
     persistence:
-      # html:    
-      #   volsync:
-      #     - name: b2
-      #       type: restic
-      #       credentials: s3
-      #       dest:
-      #         enabled: true                          
-      #       src:
-      #         enabled: true
-      # config:  
-      #   volsync:
-      #     - name: b2
-      #       type: restic
-      #       credentials: s3
-      #       dest:
-      #         enabled: true                          
-      #       src:
-      #         enabled: true
       data:
         enabled: true
         type: nfs
@@ -83,27 +65,7 @@ spec:
       #       dest:
       #         enabled: true                          
       #       src:
-      #         enabled: true
-    # cnpg:
-    #   main:
-    #     password: ${NEXTCLOUD_CNPG_PWD}
-    #     cluster:
-    #       postgresql:
-    #           max_slot_wal_keep_size: 1GB
-    #           wal_compression: lz4
-    #     #mode: recovery
-    #     mode: standalone
-    #     backups:
-    #       enabled: true
-    #       credentials: s3
-    #       #revision: "1"
-    #       retentionPolicy: "3d"
-    #     recovery:
-    #       method: object_store
-    #       credentials: s3
-    #       #revision: "1"  
-    redis:
-      password: ${NEXTCLOUD_REDIS_PWD}              
+      #         enabled: true          
     ingress:
       main:
         enabled: true
