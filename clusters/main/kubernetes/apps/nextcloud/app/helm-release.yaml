@@ -31,15 +31,15 @@
     values:
       nextcloud:
         credentials:
-          initialAdminUser: ${ADMIN}
-          initialAdminPassword: ${ADMIN_PASSWORD}
+          initialAdminUser: ${NEXTCLOUD_USER}
+          initialAdminPassword: ${NEXTCLOUD_PWD}
         general:
           default_phone_region: US
           accessIP: ${TRAEFIK_IP}
         collabora:
           enabled: true
-          username: ${ADMIN}
-          password: ${ADMIN_PASSWORD}
+          username: ${COLLABORA_USER}
+          password: ${COLLABORA_PWD}
       ingress:
         main:
           enabled: true
