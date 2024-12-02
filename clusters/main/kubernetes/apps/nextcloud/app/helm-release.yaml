@@ -97,12 +97,12 @@ spec:
         backups:
           enabled: true
           credentials: s3
-          revision: "1"
+          #revision: "1"
           retentionPolicy: "3d"
         recovery:
           method: object_store
           credentials: s3
-          revision: "1"  
+          #revision: "1"  
     redis:
       password: ${NEXTCLOUD_REDIS_PWD}              
     ingress:
