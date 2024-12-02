@@ -31,7 +31,7 @@ spec:
   values:
     global:
       stopAll: false    
-    TZ: Europe/Brussels
+    TZ: America/Chicago
     credentials:
       s3:
         type: s3
@@ -45,7 +45,7 @@ spec:
         initialAdminUser: ${NEXTCLOUD_USER}
         initialAdminPassword: ${NEXTCLOUD_PWD}
       general:
-        default_phone_region: BE
+        default_phone_region: US
         accessIP: ${TRAEFIK_IP}
       previews:
         max_memory: 5120
