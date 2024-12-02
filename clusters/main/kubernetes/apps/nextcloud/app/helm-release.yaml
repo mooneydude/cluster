@@ -42,20 +42,36 @@ spec:
           integrations:
             traefik:
               enabled: true
-              # middlewares:
-              #   - name: bouncer 
-              #     namespace: traefik
-              #   - name: local
-              #     namespace: traefik
+              entrypoints:
+              - websecure
+            certManager:
+              enabled: true
+              certificateIssuer: domain-0-wildcard
           hosts:
-            - host: next.${DOMAIN_0}
+            - host: nextcloud.${DOMAIN_0}
               paths:
                 - path: /
-                  pathType: Prefix 
-          tls:
-            - hosts:
-                - next.${DOMAIN_0}
-              clusterIssuer: domain-0-wildcard
+                  pathType: Prefix          
+      # ingress:
+      #   main:
+      #     enabled: true
+      #     integrations:
+      #       traefik:
+      #         enabled: true
+      #         # middlewares:
+      #         #   - name: bouncer 
+      #         #     namespace: traefik
+      #         #   - name: local
+      #         #     namespace: traefik
+      #     hosts:
+      #       - host: next.${DOMAIN_0}
+      #         paths:
+      #           - path: /
+      #             pathType: Prefix 
+      #     tls:
+      #       - hosts:
+      #           - next.${DOMAIN_0}
+      #         clusterIssuer: domain-0-wildcard
       cnpg:
         main:
           cluster:
