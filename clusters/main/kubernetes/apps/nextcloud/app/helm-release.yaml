@@ -36,7 +36,7 @@ spec:
       s3:
         type: s3
         url: "${S3URL}"
-        bucket: "${S3PREFIX}-nextcloud"
+        bucket: "${S3PREFIX}-nextcloud-app"
         accessKey: "${S3ID}"
         secretKey: "${S3KEY}"
         encrKey: "${S3KEY}"   
@@ -93,6 +93,7 @@ spec:
               max_slot_wal_keep_size: 1GB
               wal_compression: lz4
         #mode: recovery
+        mode: standalone
         backups:
           enabled: true
           credentials: s3
