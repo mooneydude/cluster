@@ -1,0 +1,91 @@
+---
+# yaml-language-server: schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: onlyoffice
+  namespace: onlyoffice
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: onlyoffice-document-server
+      version: 19.7.4
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+
+  values:
+    global:
+      stopAll: false
+
+    TZ: America/Chicago
+    ingress:
+      main:
+        enabled: true
+        integrations:
+          traefik:
+            enabled: true
+            entrypoints:
+            - websecure
+          certManager:
+            enabled: true
+            certificateIssuer: domain-0-wildcard
+        hosts:
+          - host: office.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix 
+  workload:
+    main:
+      podSpec:
+        containers:
+          main:
+            probes:
+              liveness:
+                path: "/healthcheck"
+              readiness:
+                path: "/healthcheck"
+              startup:
+                path: "/healthcheck"
+            env:
+              WOPI_ENABLED: true
+              JWT_ENABLED: true
+              DB_TYPE: "postgres"
+              DB_PORT: 5432
+              DB_NAME: "{{ .Values.cnpg.main.database }}"
+              DB_USER: "{{ .Values.cnpg.main.user }}"
+              REDIS_SERVER_PORT: 6379
+              DB_HOST:
+                secretKeyRef:
+                  name: cnpg-main-urls
+                  key: host
+              DB_PWD:
+                secretKeyRef:
+                  name: cnpg-main-user
+                  key: password
+              REDIS_SERVER_HOST:
+                secretKeyRef:
+                  expandObjectName: false
+                  name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                  key: plainhost
+              REDIS_SERVER_PASS:
+                secretKeyRef:
+                  expandObjectName: false
+                  name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                  key: redis-password
+              JWT_SECRET: ${NEXTCLOUD_PWD}
