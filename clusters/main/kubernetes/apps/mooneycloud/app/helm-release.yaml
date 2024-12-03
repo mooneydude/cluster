@@ -1,8 +1,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-    name: nextcloud
-    namespace: nextcloud
+    name: mooneycloud
+    namespace: mooneycloud
 spec:
     interval: 5m
     chart:
@@ -32,7 +32,7 @@ spec:
         s3:
           type: s3
           url: "${S3URL}"
-          bucket: "${S3PREFIX}-nextcloud"
+          bucket: "${S3PREFIX}-mooneycloud"
           accessKey: "${S3ID}"
           secretKey: "${S3KEY}"
           encrKey: "${S3KEY}"
@@ -48,7 +48,7 @@ spec:
               enabled: true
               certificateIssuer: domain-0-wildcard
           hosts:
-            - host: nextcloud.${DOMAIN_0}
+            - host: cloud.${DOMAIN_0}
               paths:
                 - path: /
                   pathType: Prefix          
