@@ -52,24 +52,33 @@ spec:
               paths:
                 - path: /
                   pathType: Prefix          
+      # cnpg:
+      #   main:
+      #     cluster:
+      #       singleNode: false
+      #     pgVersion: 15
+      #     mode: recovery
+      #     backups:
+      #       enabled: true
+      #       credentials: s3
+      #       scheduledBackups:
+      #         - name: daily-
+      #           # '0 23 * * *' runs daily at 5pm CDT (standard). 4pm (daylight savings)
+      #           schedule: "0 23 * * *"
+      #           backupOwnerReference: self
+      #           immediate: true
+      #           suspend: false
+      #     recovery:
+      #       method: object_store
+      #       credentials: s3
       cnpg:
         main:
-          cluster:
-            singleNode: false
-          pgVersion: 15
           mode: recovery
           backups:
             enabled: true
             credentials: s3
-            scheduledBackups:
-              - name: daily-backup
-                schedule: "0 23 * * *"
-                backupOwnerReference: self
-                immediate: true
-                suspend: false
           recovery:
-            method: object_store
-            credentials: s3
+            credentials: s3      
       persistence:
         config:
           volsync:
@@ -81,7 +90,6 @@ spec:
             src:
               enabled: true
               trigger:
-                # '0 12 * * *' runs daily at 7am CDT (standard). 6am (daylight savings)
                 schedule: 0 12 * * *
         # data:
         #   enabled: true
