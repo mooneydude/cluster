@@ -32,7 +32,7 @@ spec:
         s3:
           type: s3
           url: "${S3URL}"
-          bucket: "${S3PREFIX}-nextcloud-app"
+          bucket: "${S3PREFIX}-nextcloud"
           accessKey: "${S3ID}"
           secretKey: "${S3KEY}"
           encrKey: "${S3KEY}"
@@ -63,7 +63,7 @@ spec:
             credentials: s3
             scheduledBackups:
               - name: daily-backup
-                schedule: "0 10 0 * * *"
+                schedule: "30 10 0 * * *"
                 backupOwnerReference: self
                 immediate: true
                 suspend: false
