@@ -139,8 +139,8 @@ spec:
         # It will not deploy the container
         # Only add the OnlyOffice settings
         enabled: true
-        url: https://office.mooneybin.net
-        internal_url: onlyoffice-document-server.onlyoffice-document-server.svc.cluster.local:10043
+        url: https://office.${DOMAIN_0}
+        internal_url: onlyoffice-onlyoffice-document-server.svc.cluster.local:10043
         verify_ssl: true
         jwt: ${NEXTCLOUD_PWD}
         jwt_header: Authorization          
