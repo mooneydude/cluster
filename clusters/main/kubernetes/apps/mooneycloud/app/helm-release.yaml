@@ -79,15 +79,15 @@ spec:
           recovery:
             credentials: s3      
       persistence:
-        config:
-          volsync:
-          - name: config
-            type: restic
-            credentials: s3
-            dest:
-              enabled: true
-            src:
-              enabled: true
+        # config:
+        #   volsync:
+        #   - name: config
+        #     type: restic
+        #     credentials: s3
+        #     dest:
+        #       enabled: true
+        #     src:
+        #       enabled: true
         # data:
         #   enabled: true
         #   type: nfs
@@ -99,15 +99,15 @@ spec:
           server: ${TRUENAS_IP}
           path: /mnt/data1/nc_userdata
           mountPath: /var/www/html/data               
-        html:
-          volsync:
-          - name: html
-            type: restic
-            credentials: s3
-            dest:
-              enabled: true
-            src:
-              enabled: true
+        # html:
+        #   volsync:
+        #   - name: html
+        #     type: restic
+        #     credentials: s3
+        #     dest:
+        #       enabled: true
+        #     src:
+        #       enabled: true
       nextcloud:
         collabora:
           enabled: false
