@@ -5,4 +5,4 @@ resources:
   - mooneycloud/ks.yaml
   - hass/ks.yaml
   - ext-service
-  #- onlyoffice/ks.yaml
+  - onlyoffice/ks.yaml
