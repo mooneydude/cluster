@@ -130,12 +130,12 @@ spec:
           - PNG
           - TXT
           - XBitmap
-      onlyoffice:
-        # It will not deploy the container
-        # Only add the OnlyOffice settings
-        enabled: true
-        url: https://office.${DOMAIN_0}
-        internal_url: onlyoffice-onlyoffice-document-server.onlyoffice.svc.cluster.local:10043
-        verify_ssl: true
-        jwt: ""
-        jwt_header: Authorization          
+      # onlyoffice:
+      #   # It will not deploy the container
+      #   # Only add the OnlyOffice settings
+      #   enabled: true
+      #   url: https://office.${DOMAIN_0}
+      #   internal_url: onlyoffice-onlyoffice-document-server.onlyoffice.svc.cluster.local:10043
+      #   verify_ssl: true
+      #   jwt: ""
+      #   jwt_header: Authorization          
