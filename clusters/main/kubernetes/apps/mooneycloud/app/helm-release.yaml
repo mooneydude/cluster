@@ -73,7 +73,7 @@ spec:
       #       credentials: s3
       cnpg:
         main:
-          mode: recovery
+          #mode: recovery
           backups:
             enabled: true
             credentials: s3
