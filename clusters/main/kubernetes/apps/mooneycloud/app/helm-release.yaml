@@ -27,7 +27,7 @@ spec:
     timeout: 20m
     values:
       global:
-        stopAll: false
+        stopAll: true
       credentials:
         s3:
           type: s3
