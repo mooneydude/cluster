@@ -140,6 +140,6 @@ spec:
         enabled: true
         url: ${OFFICE_IP}
         internal_url: onlyoffice-onlyoffice-document-server.onlyoffice.svc.cluster.local:10043
-        verify_ssl: true
+        verify_ssl: false
         jwt: ${NEXTCLOUD_PWD}
         jwt_header: Authorization          
