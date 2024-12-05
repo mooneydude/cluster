@@ -32,6 +32,7 @@ spec:
   values:
     # Enable host networking for direct network access. True breaks K8s secruirty.
     # hostNetwork: true
+    TZ: America/Chicago
     
     global:
       stopAll: false 
@@ -93,7 +94,6 @@ spec:
 
     cnpg:
       main:
-        mode: standalone   #Default is 'standalone'. Set to 'recovery' when recovery from S3, also change the revisions 
         # mode: recovery
         backups:
           enabled: true

@@ -26,6 +26,7 @@ spec:
             retries: 3
     timeout: 20m
     values:
+      TZ: America/Chicago
       global:
         stopAll: false
       credentials:
@@ -48,6 +49,7 @@ spec:
               enabled: true
               entrypoints:
               - web
+              - websecure
             # certManager:
             #   enabled: true
             #   certificateIssuer: domain-0-wildcard
