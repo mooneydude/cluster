@@ -40,6 +40,26 @@ spec:
         type: LoadBalancer
         loadBalancerIP: ${OFFICE_IP}
 
+    ingress:
+      main:
+          enabled: true
+          hosts:
+              - host: onlyoffice.mooneybin.net
+                paths:
+                  - path: /
+                    pathType: Prefix
+                  - path: /push
+                    pathType: Prefix
+          ingressClassName: ""
+          integrations:
+              certManager:
+                  enabled: false
+              homepage:
+                  enabled: false
+              traefik:
+                  enabled: false
+          required: true
+
     # ingress:
     #   main:
     #     enabled: true
