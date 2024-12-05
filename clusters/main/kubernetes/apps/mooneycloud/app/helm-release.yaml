@@ -40,7 +40,27 @@ spec:
       service:
         main:
           type: LoadBalancer
-          loadBalancerIP: ${NEXTCLOUD_IP}      
+          loadBalancerIP: ${NEXTCLOUD_IP}        
+      ingress:
+        main:
+            enabled: true
+            hosts:
+                - host: cloud.mooneybin.net
+                  paths:
+                    - path: /
+                      pathType: Prefix
+                    - path: /push
+                      pathType: Prefix
+            ingressClassName: ""
+            integrations:
+                certManager:
+                    enabled: false
+                homepage:
+                    enabled: false
+                traefik:
+                    enabled: false
+            required: true
+
       # ingress:
       #   main:
       #     enabled: true
