@@ -36,6 +36,10 @@ spec:
           accessKey: "${S3ID}"
           secretKey: "${S3KEY}"
           encrKey: "${S3KEY}"
+        service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${NEXTCLOUD_IP}      
       ingress:
         main:
           enabled: true
@@ -134,7 +138,7 @@ spec:
         # It will not deploy the container
         # Only add the OnlyOffice settings
         enabled: true
-        url: https://office.${DOMAIN_0}
+        url: ${OFFICE_IP}
         internal_url: onlyoffice-onlyoffice-document-server.onlyoffice.svc.cluster.local:10043
         verify_ssl: true
         jwt: ${NEXTCLOUD_PWD}
