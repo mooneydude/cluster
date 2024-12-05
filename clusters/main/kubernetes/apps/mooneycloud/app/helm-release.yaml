@@ -36,10 +36,10 @@ spec:
           accessKey: "${S3ID}"
           secretKey: "${S3KEY}"
           encrKey: "${S3KEY}"
-        service:
-      main:
-        type: LoadBalancer
-        loadBalancerIP: ${NEXTCLOUD_IP}      
+      service:
+        main:
+          type: LoadBalancer
+          loadBalancerIP: ${NEXTCLOUD_IP}      
       ingress:
         main:
           enabled: true
