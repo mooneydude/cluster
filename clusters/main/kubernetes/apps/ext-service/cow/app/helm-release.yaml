@@ -61,11 +61,11 @@ spec:
 
         tls:
           - hosts:
-              - ${COW_DOMAIN}
+              - ${COW_DOMAIN_3}
             clusterIssuer: domain-0-wildcard
 
         hosts:
-          - host: ${COW_DOMAIN}
+          - host: ${COW_DOMAIN_3}
             paths:
               - path: /
                 pathType: Prefix                                    
