@@ -47,10 +47,10 @@ spec:
             traefik:
               enabled: true
               entrypoints:
-              - websecure
-            certManager:
-              enabled: true
-              certificateIssuer: domain-0-wildcard
+              - web
+            # certManager:
+            #   enabled: true
+            #   certificateIssuer: domain-0-wildcard
           hosts:
             - host: cloud.${DOMAIN_0}
               paths:
