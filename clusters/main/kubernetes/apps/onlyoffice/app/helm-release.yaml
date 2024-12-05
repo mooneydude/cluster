@@ -50,3 +50,42 @@ spec:
             paths:
               - path: /
                 pathType: Prefix 
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              probes:
+                liveness:
+                  path: "/healthcheck"
+                readiness:
+                  path: "/healthcheck"
+                startup:
+                  path: "/healthcheck"
+              env:
+                WOPI_ENABLED: true
+                JWT_ENABLED: false
+                DB_TYPE: "postgres"
+                DB_PORT: 5432
+                DB_NAME: "{{ .Values.cnpg.main.database }}"
+                DB_USER: "{{ .Values.cnpg.main.user }}"
+                REDIS_SERVER_PORT: 6379
+                DB_HOST:
+                  secretKeyRef:
+                    name: cnpg-main-urls
+                    key: host
+                DB_PWD:
+                  secretKeyRef:
+                    name: cnpg-main-user
+                    key: password
+                REDIS_SERVER_HOST:
+                  secretKeyRef:
+                    expandObjectName: false
+                    name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                    key: plainhost
+                REDIS_SERVER_PASS:
+                  secretKeyRef:
+                    expandObjectName: false
+                    name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                    key: redis-password
+                JWT_SECRET: ${NEXTCLOUD_PWD}

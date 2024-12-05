@@ -137,5 +137,5 @@ spec:
         url: https://office.${DOMAIN_0}
         internal_url: onlyoffice-onlyoffice-document-server.onlyoffice.svc.cluster.local:10043
         verify_ssl: true
-        jwt: ""
+        jwt: ${NEXTCLOUD_PWD}
         jwt_header: Authorization          
