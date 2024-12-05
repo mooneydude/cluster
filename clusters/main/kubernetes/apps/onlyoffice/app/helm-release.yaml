@@ -40,22 +40,22 @@ spec:
         type: LoadBalancer
         loadBalancerIP: ${OFFICE_IP}
 
-    ingress:
-      main:
-        enabled: true
-        integrations:
-          traefik:
-            enabled: true
-            entrypoints:
-            - websecure
-          certManager:
-            enabled: true
-            certificateIssuer: domain-0-wildcard
-        hosts:
-          - host: office.${DOMAIN_0}
-            paths:
-              - path: /
-                pathType: Prefix 
+    # ingress:
+    #   main:
+    #     enabled: true
+    #     integrations:
+    #       traefik:
+    #         enabled: true
+    #         entrypoints:
+    #         - websecure
+    #       certManager:
+    #         enabled: true
+    #         certificateIssuer: domain-0-wildcard
+    #     hosts:
+    #       - host: office.${DOMAIN_0}
+    #         paths:
+    #           - path: /
+    #             pathType: Prefix 
     workload:
       main:
         podSpec:
