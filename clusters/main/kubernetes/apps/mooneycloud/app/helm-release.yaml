@@ -56,21 +56,21 @@ spec:
       cnpg:
         main:
           cluster:
-            singleNode: false
+            singleNode: true
           pgVersion: 15
-          #mode: recovery
+          mode: recovery
           backups:
             enabled: true
             credentials: s3
             scheduledBackups:
-              - name: daily-
-                schedule: "30 12 * * *"
+              - name: daily-backup
+                schedule: "0 15 0 * * *"
                 backupOwnerReference: self
                 immediate: true
                 suspend: false
           recovery:
             method: object_store
-            credentials: s3
+            credentials: s3            
       persistence:
         config:
           volsync:
