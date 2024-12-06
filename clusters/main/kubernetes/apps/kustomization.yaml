@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - mooneycloud/ks.yaml
-  # - hass/ks.yaml
-  # - ext-service
+  - hass/ks.yaml
+  - ext-service
   # - onlyoffice/ks.yaml
