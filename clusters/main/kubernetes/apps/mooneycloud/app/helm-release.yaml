@@ -37,47 +37,22 @@ spec:
           accessKey: "${S3ID}"
           secretKey: "${S3KEY}"
           encrKey: "${S3KEY}"
-      service:
-        main:
-          type: LoadBalancer
-          loadBalancerIP: ${NEXTCLOUD_IP}        
       ingress:
         main:
-            enabled: true
-            hosts:
-                - host: cloud.mooneybin.net
-                  paths:
-                    - path: /
-                      pathType: Prefix
-                    - path: /push
-                      pathType: Prefix
-            ingressClassName: ""
-            integrations:
-                certManager:
-                    enabled: false
-                homepage:
-                    enabled: false
-                traefik:
-                    enabled: false
-            required: true
-
-      # ingress:
-      #   main:
-      #     enabled: true
-      #     integrations:
-      #       traefik:
-      #         enabled: true
-      #         entrypoints:
-      #         - web
-      #         - websecure
-      #       # certManager:
-      #       #   enabled: true
-      #       #   certificateIssuer: domain-0-wildcard
-      #     hosts:
-      #       - host: cloud.${DOMAIN_0}
-      #         paths:
-      #           - path: /
-      #             pathType: Prefix          
+          enabled: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+              - websecure
+            certManager:
+              enabled: true
+              certificateIssuer: domain-0-wildcard
+          hosts:
+            - host: cloud.${DOMAIN_0}
+              paths:
+                - path: /
+                  pathType: Prefix          
       # cnpg:
       #   main:
       #     cluster:
@@ -156,12 +131,3 @@ spec:
           - PNG
           - TXT
           - XBitmap
-      onlyoffice:
-        # It will not deploy the container
-        # Only add the OnlyOffice settings
-        enabled: true
-        url: ${OFFICE_IP}
-        internal_url: onlyoffice-onlyoffice-document-server.onlyoffice.svc.cluster.local:10043
-        verify_ssl: false
-        jwt: ${NEXTCLOUD_PWD}
-        jwt_header: Authorization          
