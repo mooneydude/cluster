@@ -37,11 +37,6 @@ spec:
     global:
       stopAll: false 
 
-    service:
-      main:
-        type: LoadBalancer
-        loadBalancerIP: ${HASS_IP}
-
     credentials:
       s3:
         type: s3
