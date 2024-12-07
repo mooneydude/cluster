@@ -80,7 +80,7 @@ spec:
           containers:
             main:
               env:
-                WG_HOST: ${WAN_IP}
+                WG_HOST: ${DOMAWIWaN_1}
                 WG_MTU: 1350
                 WG_DEFAULT_DNS: ${BLOCKY_IP}
                 PASSWORD_HASH: ${WG_EASY_PASSWORD}
