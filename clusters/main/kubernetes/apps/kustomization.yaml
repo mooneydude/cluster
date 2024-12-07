@@ -7,3 +7,4 @@ resources:
   - ext-service
   # - onlyoffice/ks.yaml
   - wg-easy/ks.yaml
+  - hexo-blog/ks.yaml
