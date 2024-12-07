@@ -39,4 +39,6 @@ spec:
         loadBalancerIP: ${BLOG_IP}
         ports:
           main:
-            port: 80
+            port: 10306
+            protocol: http
+            targetPort: 8080            
