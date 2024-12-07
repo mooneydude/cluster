@@ -30,14 +30,14 @@ spec:
   values:
     global:
       stopAll: false
-      credentials:
-        s3:
-          type: s3
-          url: "${S3URL}"
-          bucket: "${S3PREFIX}-mooneycloud"
-          accessKey: "${S3ID}"
-          secretKey: "${S3KEY}"
-          encrKey: "${S3KEY}"
+    credentials:
+      s3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3PREFIX}-mooneycloud"
+        accessKey: "${S3ID}"
+        secretKey: "${S3KEY}"
+        encrKey: "${S3KEY}"
     service:
       vpn:
         loadBalancerIP: ${WG_EASY_IP}
