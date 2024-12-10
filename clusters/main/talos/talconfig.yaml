@@ -40,20 +40,20 @@ nodes:
               gateway: ${GATEWAY}
           vip:
             ip: ${VIP}
-    - hostname: k8s-worker-1
-      ipAddress: 192.168.68.132
-      nameservers:
-        - 1.1.1.1
-        - 8.8.8.8
-      installDiskSelector:
-        size: <= 600GB
-      schematic:
-          customization:
-              systemExtensions:
-                  officialExtensions:
-                      - siderolabs/amd-ucode
-                      - siderolabs/iscsi-tools
-                      - siderolabs/util-linux-tools
+    # - hostname: k8s-worker-1
+    #   ipAddress: 192.168.68.132
+    #   nameservers:
+    #     - 1.1.1.1
+    #     - 8.8.8.8
+    #   installDiskSelector:
+    #     size: <= 600GB
+    #   schematic:
+    #       customization:
+    #           systemExtensions:
+    #               officialExtensions:
+    #                   - siderolabs/amd-ucode
+    #                   - siderolabs/iscsi-tools
+    #                   - siderolabs/util-linux-tools
 controlPlane:
     patches:
         - '@./patches/controlplane.yaml'
@@ -69,7 +69,7 @@ controlPlane:
                 officialExtensions:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
-                    - siderolabs/qemu-guest-agent
+                    # - siderolabs/qemu-guest-agent
     machineFiles:
     - content: |
         [plugins."io.containerd.grpc.v1.cri"]
