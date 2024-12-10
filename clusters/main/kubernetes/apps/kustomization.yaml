@@ -4,6 +4,6 @@ resources:
   - kubernetes-dashboard/ks.yaml
   - mooneycloud/ks.yaml
   - hass/ks.yaml
-  # - ext-service
+  - ext-service
   - wg-easy/ks.yaml
   # - homepage/ks.yaml
