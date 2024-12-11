@@ -5,5 +5,5 @@ resources:
   # - mooneycloud/ks.yaml
   # - hass/ks.yaml
   # - ext-service
-  - wg-easy/ks.yaml
+  # - wg-easy/ks.yaml
   # - homepage/ks.yaml
