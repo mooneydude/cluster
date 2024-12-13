@@ -68,6 +68,7 @@ spec:
                 backupOwnerReference: self
                 immediate: true
                 suspend: false
+            retentionPolicy: "7d"    
           recovery:
             method: object_store
             credentials: s3            

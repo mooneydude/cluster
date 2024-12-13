@@ -28,15 +28,12 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-
   values:
-    # Enable host networking for direct network access. True breaks K8s secruirty.
+    ## Enable host networking for direct network access. True breaks K8s secruirty.
     # hostNetwork: true
-    TZ: America/Chicago
-    
+    TZ: America/Chicago   
     global:
       stopAll: false 
-
     credentials:
       s3:
         type: s3
@@ -44,8 +41,7 @@ spec:
         bucket: "${S3PREFIX}-hass"
         accessKey: "${S3ID}"
         secretKey: "${S3KEY}"
-        encrKey: "${S3KEY}"
-        
+        encrKey: "${S3KEY}"       
     ingress:
       main:
         enabled: true
@@ -59,23 +55,19 @@ spec:
           #       namespace: traefik
             entrypoints:
               - websecure
-
         tls:
           - hosts:
               - hass.${DOMAIN_0}
             clusterIssuer: domain-0-wildcard
-
         hosts:
           - host: hass.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix   
-
     homeassistant:
       trusted_proxies:
       - 172.16.0.0/16
       - 172.17.0.0/16
-
     persistence:
       config:
         volsync:
@@ -86,7 +78,6 @@ spec:
               enabled: true
             src:                #VolSync Source (Backup)
               enabled: true
-
     cnpg:
       main:
         # mode: recovery
