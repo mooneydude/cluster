@@ -7,3 +7,4 @@ resources:
   - ext-service
   - wg-easy/ks.yaml
   # - homepage/ks.yaml
+  - cloudflared/ks.yaml
