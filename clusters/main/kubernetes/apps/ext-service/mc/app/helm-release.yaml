@@ -57,11 +57,11 @@ spec:
 
         tls:
           - hosts:
-              - ${DOMAIN_2}
+              - ${DOMAIN_3}
             clusterIssuer: domain-0-wildcard
 
         hosts:
-          - host: ${DOMAIN_2}
+          - host: ${DOMAIN_3:}
             paths:
               - path: /
                 pathType: Prefix                                
