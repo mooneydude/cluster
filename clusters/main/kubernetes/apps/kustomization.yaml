@@ -3,8 +3,8 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - cloudflared/ks.yaml
+  - ext-service
   # - mooneycloud/ks.yaml
   # - hass/ks.yaml
-  # - ext-service
   # - wg-easy/ks.yaml
   # - homepage/ks.yaml
