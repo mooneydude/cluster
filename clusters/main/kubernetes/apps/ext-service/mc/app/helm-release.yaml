@@ -61,7 +61,7 @@ spec:
             clusterIssuer: domain-0-wildcard
 
         hosts:
-          - host: ${DOMAIN_3:}
+          - host: ${DOMAIN_3}
             paths:
               - path: /
                 pathType: Prefix                                
