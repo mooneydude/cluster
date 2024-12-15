@@ -71,3 +71,9 @@ spec:
           hosts:
             - ${DOMAIN_1}
             - '*.${DOMAIN_1}'
+        - name: domain-2-wildcard
+          enabled: true
+          certificateIssuer: domain-0-le-prod
+          hosts:
+            - ${DOMAIN_2}
+            - '*.${DOMAIN_2}'            
