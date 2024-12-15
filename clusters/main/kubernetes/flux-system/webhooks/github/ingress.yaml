@@ -24,4 +24,4 @@ spec:
   tls:
     - hosts:
       - flux-webhook.${DOMAIN_0}
-      secretName: cluster-cert 
+      secretName: domain-0-wildcard
