@@ -58,7 +58,7 @@ spec:
         tls:
           - hosts:
               - ${DOMAIN_3}
-            clusterIssuer: domain-0-wildcard
+            clusterIssuer: domain-2-wildcard
 
         hosts:
           - host: ${DOMAIN_3}
