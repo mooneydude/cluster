@@ -78,7 +78,7 @@ spec:
           enabled: true
           credentials: s3
           retentionPolicy: "14d"
-          # revision: 1
+          revision: 1
         recovery:
           method: object_store
           credentials: s3
