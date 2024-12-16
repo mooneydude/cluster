@@ -33,7 +33,7 @@ spec:
     # hostNetwork: true
     TZ: America/Chicago   
     global:
-      stopAll: true 
+      stopAll: false 
     credentials:
       s3:
         type: s3
