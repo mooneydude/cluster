@@ -47,22 +47,17 @@ spec:
     ingress:
       main:
         enabled: true
+        hosts:
+          - host: vpn.${DOMAIN_1}
         integrations:
           traefik:
             enabled: true
-            entrypoints:
-            - websecure
             # middlewares:
-            # - name: auth
-            #   namespace: traefik
+            #   - name: local
+            #     namespace: traefik
           certManager:
             enabled: true
             certificateIssuer: cloudflare
-        hosts:
-          - host: vpn.${DOMAIN_0}
-            paths:
-              - path: /
-                pathType: Prefix
     persistence:
       config:
         volsync:
