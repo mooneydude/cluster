@@ -78,17 +78,17 @@ spec:
               trustedIPs: []
               # -- Trust every incoming connection
               insecureMode: false 
-          tcpexample:
-            enabled: true
-            targetPort: 993
-            protocol: tcp
-            tls:
-              enabled: false
-              # this is the name of a TLSOption definition
-              options: ""
-              certResolver: ""
-              domains: []
-              # - main: example.com
-              #   sans:
-              #     - foo.example.com
-              #     - bar.example.com
+      tcpexample:
+        enabled: true
+        targetPort: 993
+        protocol: tcp
+        tls:
+          enabled: false
+          # this is the name of a TLSOption definition
+          options: ""
+          certResolver: ""
+          domains: []
+          # - main: example.com
+          #   sans:
+          #     - foo.example.com
+          #     - bar.example.com
