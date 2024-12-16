@@ -57,7 +57,7 @@ spec:
             #   namespace: traefik
           certManager:
             enabled: true
-            certificateIssuer: domain-0-wildcard
+            certificateIssuer: cloudflare
         hosts:
           - host: vpn.${DOMAIN_0}
             paths:

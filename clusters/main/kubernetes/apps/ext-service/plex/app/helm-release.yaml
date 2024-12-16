@@ -41,27 +41,14 @@ spec:
     ingress:
       main:
         enabled: true
+        hosts:
+          - host: plex.${DOMAIN_2}
         integrations:
           traefik:
             enabled: true
-          #   middlewares:
-          #     - name: local
-          #       namespace: traefik
-          #     - name: bouncer
-          #       namespace: traefik
-          #   entrypoints:
-          #     - websecure
-          # certManager:
-          #   enabled: true
-          #   certificateIssuer: cluster-cert
-
-        tls:
-          - hosts:
-              - plex.${DOMAIN_2}
-            clusterIssuer: domain-1-wildcard
-
-        hosts:
-          - host: plex.${DOMAIN_2}
-            paths:
-              - path: /
-                pathType: Prefix                                
+            middlewares:
+              - name: local
+                namespace: traefik
+          certManager:
+            enabled: true
+            certificateIssuer: cloudflare

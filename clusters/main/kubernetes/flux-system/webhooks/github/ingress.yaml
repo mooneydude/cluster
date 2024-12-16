@@ -4,7 +4,7 @@ metadata:
   name: webhook-receiver
   namespace: flux-system
   annotations:
-      cert-manager.io/cluster-issuer: domain-0-le-prod
+      cert-manager.io/cluster-issuer: cloudflare
       cert-manager.io/private-key-rotation-policy: Always
       traefik.ingress.kubernetes.io/router.entrypoints: websecure
       traefik.ingress.kubernetes.io/router.middlewares: traefik-chain-basic@kubernetescrd
@@ -24,4 +24,4 @@ spec:
   tls:
     - hosts:
       - flux-webhook.${DOMAIN_2}
-      secretName: domain-1-wildcard
+      secretName: cloudflare
