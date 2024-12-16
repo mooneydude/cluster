@@ -62,7 +62,7 @@ spec:
       config:
         volsync:
         - name: config
-          # type: restic
+          type: b2
           credentials: s3
           dest:
             enabled: true
