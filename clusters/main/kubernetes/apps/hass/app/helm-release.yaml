@@ -45,25 +45,17 @@ spec:
     ingress:
       main:
         enabled: true
+        hosts:
+          - host: hass.${DOMAIN_1}
         integrations:
           traefik:
             enabled: true
-          #   middlewares:
-          #     - name: local
-          #       namespace: traefik
-          #     - name: bouncer
-          #       namespace: traefik
-            entrypoints:
-              - websecure
-        tls:
-          - hosts:
-              - hass.${DOMAIN_0}
-            clusterIssuer: domain-0-wildcard
-        hosts:
-          - host: hass.${DOMAIN_0}
-            paths:
-              - path: /
-                pathType: Prefix   
+            # middlewares:
+            #   - name: local
+            #     namespace: traefik
+          certManager:
+            enabled: true
+            certificateIssuer: cloudflare  
     homeassistant:
       trusted_proxies:
       - 172.16.0.0/16
