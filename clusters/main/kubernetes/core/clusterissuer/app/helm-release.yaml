@@ -65,15 +65,15 @@ spec:
           hosts:
             - ${DOMAIN_0}
             - '*.${DOMAIN_0}'
-        - name: domain-1-wildcard
-          enabled: true
-          certificateIssuer: domain-0-le-prod
-          hosts:
-            - ${DOMAIN_1}
-            - '*.${DOMAIN_1}'
-        - name: domain-2-wildcard
-          enabled: true
-          certificateIssuer: domain-0-le-prod
-          hosts:
-            - ${DOMAIN_2}
-            - '*.${DOMAIN_2}'            
+        # - name: domain-1-wildcard
+        #   enabled: true
+        #   certificateIssuer: domain-0-le-prod
+        #   hosts:
+        #     - ${DOMAIN_1}
+        #     - '*.${DOMAIN_1}'
+        # - name: domain-2-wildcard
+        #   enabled: true
+        #   certificateIssuer: domain-0-le-prod
+        #   hosts:
+        #     - ${DOMAIN_2}
+        #     - '*.${DOMAIN_2}'            
