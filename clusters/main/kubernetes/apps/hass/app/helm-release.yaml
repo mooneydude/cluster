@@ -73,7 +73,7 @@ spec:
               enabled: true
     cnpg:
       main:
-        mode: recovery
+        # mode: recovery
         backups:
           enabled: true
           credentials: s3
@@ -82,5 +82,5 @@ spec:
         recovery:
           method: object_store
           credentials: s3
-          revision: "2"
+          # revision: "2"
 
