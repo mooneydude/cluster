@@ -4,7 +4,7 @@ metadata:
   name: webhook-receiver
   namespace: flux-system
   annotations:
-      cert-manager.io/cluster-issuer: cluster-cert
+      cert-manager.io/cluster-issuer: domain-0-le-prod
       cert-manager.io/private-key-rotation-policy: Always
       traefik.ingress.kubernetes.io/router.entrypoints: websecure
       traefik.ingress.kubernetes.io/router.middlewares: traefik-chain-basic@kubernetescrd
