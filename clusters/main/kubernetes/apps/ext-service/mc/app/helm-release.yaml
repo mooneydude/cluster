@@ -39,10 +39,22 @@ spec:
             enabled: true
             protocol: http
             port: 8082
-          query:
+          smtp:
             enabled: true
             protocol: tcp
-            port: 993
+            port: 587
+          smtps:
+            enabled: true
+            protocol: tcp
+            port: 465
+          imap:
+            enabled: true
+            protocol: tcp
+            port: 143
+          imaps:
+            enabled: true
+            protocol: tcp
+            port: 993                                    
     ingress:
       main:
         enabled: true
