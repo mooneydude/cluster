@@ -77,4 +77,8 @@ spec:
               # -- Only IPs in trustedIPs will lead to remote client address replacement
               trustedIPs: []
               # -- Trust every incoming connection
-              insecureMode: false            
+              insecureMode: false 
+          imap:
+            enabled: true
+            port: 143
+            protocol: tcp               
