@@ -87,8 +87,7 @@ spec:
               # this is the name of a TLSOption definition
               options: ""
               certResolver: ""
-              domains: []
-              # - main: example.com
-              #   sans:
-              #     - foo.example.com
-              #     - bar.example.com
+              domains:
+              - main: ${DOMAIN_0}
+                sans:
+                  - ${DOMAIN_3}
