@@ -38,6 +38,12 @@ spec:
           main:
             protocol: http
             port: 8082
+          smtp:
+            protocol: tls
+            port: 587
+          imaps:
+            protocol: tls
+            port: 993
     ingress:
       main:
         enabled: true
