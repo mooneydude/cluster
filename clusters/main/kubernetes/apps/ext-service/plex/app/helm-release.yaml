@@ -57,11 +57,11 @@ spec:
 
         tls:
           - hosts:
-              - plex.${DOMAIN_0}
-            clusterIssuer: domain-0-wildcard
+              - plex.${DOMAIN_2}
+            clusterIssuer: domain-1-wildcard
 
         hosts:
-          - host: plex.${DOMAIN_0}
+          - host: plex.${DOMAIN_2}
             paths:
               - path: /
                 pathType: Prefix                                
