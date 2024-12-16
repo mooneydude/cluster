@@ -69,17 +69,4 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: cloudflare
-      smtp:
-        enabled: true
-        hosts:
-          - host: ${DOMAIN_3}
-        integrations:
-          traefik:
-            enabled: true
-            # middlewares:
-            #   - name: local
-            #     namespace: traefik
-          certManager:
-            enabled: true
-            certificateIssuer: cloudflare            
                             
