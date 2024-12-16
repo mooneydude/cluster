@@ -98,7 +98,7 @@ spec:
               insecureMode: false
           minecraft-java:
             enabled: true
-            port: 587
+            port: 465
             protocol: https
             # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
             forwardedHeaders:
