@@ -41,27 +41,15 @@ spec:
     ingress:
       main:
         enabled: true
+        hosts:
+          - host: ${DOMAIN_3}
         integrations:
           traefik:
             enabled: true
-          #   middlewares:
-          #     - name: local
-          #       namespace: traefik
-          #     - name: bouncer
-          #       namespace: traefik
-          #   entrypoints:
-          #     - websecure
-          # certManager:
-          #   enabled: true
-          #   certificateIssuer: cluster-cert
-
-        tls:
-          - hosts:
-              - ${DOMAIN_3}
-            clusterIssuer: cloudflare
-
-        hosts:
-          - host: ${DOMAIN_3}
-            paths:
-              - path: /
-                pathType: Prefix                                
+            # middlewares:
+            #   - name: local
+            #     namespace: traefik
+          certManager:
+            enabled: true
+            certificateIssuer: cloudflare
+                            
