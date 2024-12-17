@@ -58,3 +58,18 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: cloudflare
+    # Adding the IngressRouteTCP configuration here
+    ingressRoute:
+      imaps:
+        enabled: true
+        kind: IngressRouteTCP
+        spec:
+          entryPoints:
+            - imaps  # Ensure this entrypoint is configured in Traefik
+          routes:
+          - match: HostSNI(${DOMAIN_3})  # Adjust this matcher as per your needs
+            services:
+            - name: mc-gcli-main  # This name should match your service name
+              port: 993
+          tls:
+            passthrough: true            
