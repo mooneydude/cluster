@@ -54,7 +54,7 @@ spec:
             # middlewares:
             #   - name: local
             #     namespace: traefik
-          # certManager:
-          #   enabled: true
-          #   certificateIssuer: cloudflare
+          certManager:
+            enabled: true
+            certificateIssuer: cloudflare
                             
