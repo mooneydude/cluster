@@ -46,8 +46,8 @@ spec:
         ports:
           mc1:
             enabled: true
-            protocol: tcp
-            port: 993            
+            protocol: tcp  # Changed from http to tcp since 993 is typically for IMAP over SSL/TLS
+            port: 993  # Changed to port 993
     ingress:
       main:
         enabled: true
@@ -68,11 +68,10 @@ spec:
           - host: ${DOMAIN_3}
         integrations:
           traefik:
-            enabled: true
+            enabled: false
             # middlewares:
             #   - name: local
             #     namespace: traefik
           certManager:
             enabled: true
-            certificateIssuer: cloudflare            
-                            
+            certificateIssuer: cloudflare
