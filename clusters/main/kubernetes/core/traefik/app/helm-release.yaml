@@ -121,7 +121,7 @@ spec:
             enabled: true
             port: 587
             protocol: http
-            redirectTo: mc-ssl            
+            redirectTo: mc-java-ssl            
             # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
             forwardedHeaders:
               enabled: false
