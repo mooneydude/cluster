@@ -38,7 +38,11 @@ spec:
           main:
             protocol: http
             port: 8082
-          mc-gclil:
+      mc-gcli:
+        type: ExternalIP
+        externalIP: ${MC_IP}
+        ports:
+          main:      
             protocol: http
             port: 993  
     ingress:
@@ -55,4 +59,17 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: cloudflare
+      mc-gcli:
+        enabled: true
+        hosts:
+          - host: ${DOMAIN_3}
+        integrations:
+          traefik:
+            enabled: true
+            # middlewares:
+            #   - name: local
+            #     namespace: traefik
+          certManager:
+            enabled: true
+            certificateIssuer: cloudflare            
                             
