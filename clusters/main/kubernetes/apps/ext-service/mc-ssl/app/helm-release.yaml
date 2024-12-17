@@ -38,6 +38,9 @@ spec:
           main:
             protocol: http
             port: 8082
+          mc-gclil:
+            protocol: http
+            port: 993  
     ingress:
       main:
         enabled: true
