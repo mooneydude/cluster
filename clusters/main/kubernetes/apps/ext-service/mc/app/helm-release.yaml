@@ -40,7 +40,7 @@ spec:
             protocol: http
             port: 8082
       mc-1:
-        enable: true
+        enabled: true
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
