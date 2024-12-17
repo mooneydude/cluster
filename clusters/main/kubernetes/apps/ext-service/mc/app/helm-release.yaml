@@ -31,21 +31,21 @@ spec:
     global:
       stopAll: false
     service:
-      tcp:
+      main:
         enabled: true
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
-          main:
+          tcp:
             enabled: true
             protocol: http
             port: 8082
-          tcp:
+          main:
             enabled: true
             protocol: tcp
             port: 993          
     ingress:
-      tcp:
+      main:
         enabled: true
         hosts:
           - host: ${DOMAIN_3}
