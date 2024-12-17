@@ -32,6 +32,7 @@ spec:
       stopAll: false
     service:
       mc1:
+        primary: true
         enabled: true
         type: ExternalIP
         externalIP: ${MC_IP}
