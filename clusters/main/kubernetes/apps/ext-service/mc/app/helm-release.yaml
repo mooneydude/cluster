@@ -39,7 +39,7 @@ spec:
             enabled: true
             protocol: http
             port: 8082
-      mc:
+      mc1:
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
@@ -61,4 +61,17 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: cloudflare
+      mc1:
+        enabled: true
+        hosts:
+          - host: ${DOMAIN_3}
+        integrations:
+          traefik:
+            enabled: true
+            # middlewares:
+            #   - name: local
+            #     namespace: traefik
+          certManager:
+            enabled: true
+            certificateIssuer: cloudflare            
                             
