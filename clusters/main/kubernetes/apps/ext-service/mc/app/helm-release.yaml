@@ -39,7 +39,11 @@ spec:
           main:
             enabled: true
             protocol: http
-            port: 8082          
+            port: 8082
+          imaps:  # Adding new port for IMAPS
+            enabled: true
+            protocol: tcp
+            port: 993
     ingress:
       main:
         enabled: true
