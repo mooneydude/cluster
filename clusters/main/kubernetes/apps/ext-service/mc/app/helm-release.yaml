@@ -39,6 +39,14 @@ spec:
             enabled: true
             protocol: http
             port: 8082
+      mc-1:
+        type: ExternalIP
+        externalIP: ${MC_IP}
+        ports:
+          mc-1:
+            enabled: true
+            protocol: tcp
+            port: 993       
     ingress:
       main:
         enabled: true
@@ -53,3 +61,9 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: cloudflare
+      mc-1:
+        enabled: true
+        hosts:
+          - host: ${DOMAIN_3}
+        tls:
+          passthrough: true
