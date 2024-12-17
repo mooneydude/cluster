@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: mc-gcli
+  name: mc-gcli-1
   namespace: ext-service
 spec:
   interval: 15m
@@ -31,25 +31,26 @@ spec:
     global:
       stopAll: false
     service:
-      main:
+      mc1:
+        enabled: true
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
-          main:
-            protocol: http
-            port: 8082
+          mc1:
+            enabled: true
+            protocol: tcp  # Changed from http to tcp since 993 is typically for IMAP over SSL/TLS
+            port: 993  # Changed to port 993
     ingress:
-      main:
+      mc1:
         enabled: true
         hosts:
           - host: ${DOMAIN_3}
         integrations:
           traefik:
-            enabled: true
+            enabled: false
             # middlewares:
             #   - name: local
             #     namespace: traefik
           certManager:
             enabled: true
             certificateIssuer: cloudflare
-                            
