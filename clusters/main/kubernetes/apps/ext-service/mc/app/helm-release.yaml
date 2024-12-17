@@ -36,10 +36,6 @@ spec:
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
-          tcp:
-            enabled: true
-            protocol: http
-            port: 8082
           main:
             enabled: true
             protocol: tcp
@@ -51,7 +47,7 @@ spec:
           - host: ${DOMAIN_3}
         integrations:
           traefik:
-            enabled: true
+            enabled: false
             # middlewares:
             #   - name: local
             #     namespace: traefik
