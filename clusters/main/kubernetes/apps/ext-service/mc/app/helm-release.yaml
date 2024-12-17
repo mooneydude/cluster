@@ -38,8 +38,8 @@ spec:
         ports:
           main:
             enabled: true
-            protocol: tcp
-            port: 993          
+            protocol: http
+            port: 8082          
     ingress:
       main:
         enabled: true
