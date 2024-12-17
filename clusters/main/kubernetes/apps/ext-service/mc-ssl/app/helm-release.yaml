@@ -31,24 +31,23 @@ spec:
     global:
       stopAll: false
     service:
-      mc1:
-        primary: true
+      main:
         enabled: true
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
-          mc1:
+          main:
             enabled: true
             protocol: tcp  # Changed from http to tcp since 993 is typically for IMAP over SSL/TLS
             port: 993  # Changed to port 993
     ingress:
-      mc1:
+      main:
         enabled: true
         hosts:
           - host: ${DOMAIN_3}
         integrations:
           traefik:
-            enabled: true
+            enabled: false
             # middlewares:
             #   - name: local
             #     namespace: traefik
