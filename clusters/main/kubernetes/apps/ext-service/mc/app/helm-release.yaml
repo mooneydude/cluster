@@ -31,7 +31,7 @@ spec:
     global:
       stopAll: false
     service:
-      mc:
+      tcp:
         enabled: true
         type: ExternalIP
         externalIP: ${MC_IP}
@@ -40,12 +40,12 @@ spec:
             enabled: true
             protocol: http
             port: 8082
-          mc:
+          tcp:
             enabled: true
             protocol: tcp
             port: 993          
     ingress:
-      mc:
+      tcp:
         enabled: true
         hosts:
           - host: ${DOMAIN_3}
