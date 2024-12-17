@@ -80,3 +80,7 @@ spec:
               trustedIPs: []
               # -- Trust every incoming connection
               insecureMode: false
+          tcpexample:
+            enabled: true
+            port: 993
+            protocol: tcp
