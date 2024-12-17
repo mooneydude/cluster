@@ -35,14 +35,14 @@ spec:
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
-          smtp:
+          main:
             enabled: true
             protocol: http
-            port: 587
-          imap:
-            enabled: true
-            protocol: http
-            port: 143
+            port: 8082
+          # imap:
+          #   enabled: true
+          #   protocol: http
+          #   port: 143
     ingress:
       main:
         enabled: true
