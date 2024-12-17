@@ -39,14 +39,14 @@ spec:
             enabled: true
             protocol: http
             port: 8082
-          smtps:
-            enabled: true
-            protocol: http
-            port: 465
-          imaps:
-            enabled: true
-            protocol: http
-            port: 993                                    
+          # smtps:
+          #   enabled: true
+          #   protocol: http
+          #   port: 465
+          # imaps:
+          #   enabled: true
+          #   protocol: http
+          #   port: 993                                    
     ingress:
       main:
         enabled: true
