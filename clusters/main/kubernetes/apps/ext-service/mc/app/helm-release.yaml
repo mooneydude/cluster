@@ -32,6 +32,7 @@ spec:
       stopAll: false
     service:
       mc:
+        enabled: true
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
