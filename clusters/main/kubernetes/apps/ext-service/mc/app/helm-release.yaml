@@ -67,9 +67,9 @@ spec:
           entryPoints:
             - imaps  # Ensure this entrypoint is configured in Traefik
           routes:
-          - match: HostSNI(${DOMAIN_3})  # Adjust this matcher as per your needs
+          - match: HostSNI(`mail.gulfcoastlifeinsurance.com`)  # Adjust this matcher as per your needs
             services:
-            - name: mc-gcli-ext-service  # This name should match your service name
+            - name: mc-gcli-main  # This name should match your service name
               port: 993
           tls:
             passthrough: true            
