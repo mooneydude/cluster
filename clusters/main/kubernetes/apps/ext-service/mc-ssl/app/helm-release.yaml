@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: mc-gcli
+  name: mc-gcli-ssl
   namespace: ext-service
 spec:
   interval: 15m
@@ -35,14 +35,18 @@ spec:
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
-          smtp:
+          main:
             enabled: true
             protocol: http
-            port: 587
-          imap:
+            port: 8082
+          smtps:
             enabled: true
-            protocol: http
-            port: 143
+            protocol: https
+            port: 465
+          imaps:
+            enabled: true
+            protocol: https
+            port: 993                                    
     ingress:
       main:
         enabled: true
@@ -54,7 +58,7 @@ spec:
             # middlewares:
             #   - name: local
             #     namespace: traefik
-          # certManager:
-          #   enabled: true
-          #   certificateIssuer: cloudflare
+          certManager:
+            enabled: true
+            certificateIssuer: cloudflare
                             
