@@ -43,7 +43,7 @@ spec:
         type: ExternalIP
         externalIP: ${MC_IP}
         ports:
-          mc-gcli:
+          mc1:
             enabled: true
             protocol: http
             port: 993            
