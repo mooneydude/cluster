@@ -47,7 +47,7 @@ spec:
           - host: ${DOMAIN_3}
         integrations:
           traefik:
-            enabled: false
+            enabled: true
             # middlewares:
             #   - name: local
             #     namespace: traefik
