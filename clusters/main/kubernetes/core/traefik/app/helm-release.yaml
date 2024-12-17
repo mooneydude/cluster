@@ -82,18 +82,15 @@ spec:
               insecureMode: false
           tcpexample:
             enabled: true
-            port: 993
+            targetPort: 993
             protocol: tcp
-            forwardedHeaders:
+            tls:
               enabled: false
-              # -- List of trusted IP and CIDR references
-              trustedIPs: []
-              # -- Trust all forwarded headers
-              insecureMode: false
-            # -- Configure (Proxy Protocol Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#proxyprotocol] Support
-            proxyProtocol:
-              enabled: false
-              # -- Only IPs in trustedIPs will lead to remote client address replacement
-              trustedIPs: []
-              # -- Trust every incoming connection
-              insecureMode: false            
+              # this is the name of a TLSOption definition
+              options: ""
+              certResolver: ""
+              domains:
+              - main: ${DOMAIN_0}
+                sans:
+                  - ${DOMAIN_3}
+        
