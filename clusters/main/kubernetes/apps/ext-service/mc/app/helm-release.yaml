@@ -44,7 +44,7 @@ spec:
             protocol: tcp
             port: 993          
     ingress:
-      main:
+      mc:
         enabled: true
         hosts:
           - host: ${DOMAIN_3}
