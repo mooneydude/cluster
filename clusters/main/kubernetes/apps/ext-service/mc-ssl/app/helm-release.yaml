@@ -41,11 +41,11 @@ spec:
             port: 8082
           smtps:
             enabled: true
-            protocol: https
+            protocol: http
             port: 465
           imaps:
             enabled: true
-            protocol: https
+            protocol: http
             port: 993                                    
     ingress:
       main:
