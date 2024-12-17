@@ -41,19 +41,19 @@ spec:
             port: 8082
           smtp:
             enabled: true
-            protocol: tcp
+            protocol: http
             port: 587
           smtps:
             enabled: true
-            protocol: tcp
+            protocol: https
             port: 465
           imap:
             enabled: true
-            protocol: tcp
+            protocol: http
             port: 143
           imaps:
             enabled: true
-            protocol: tcp
+            protocol: https
             port: 993                                    
     ingress:
       main:
