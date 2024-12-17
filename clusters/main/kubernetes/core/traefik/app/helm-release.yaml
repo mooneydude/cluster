@@ -41,7 +41,7 @@ spec:
         ports:
           tcpexample:
             enabled: true
-            targetPort: 993
+            port: 993
             protocol: tcp
             forwardedHeaders:
               enabled: false
