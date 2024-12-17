@@ -62,11 +62,11 @@ spec:
           - host: ${DOMAIN_3}
         integrations:
           traefik:
-            enabled: true
+            enabled: false
             # middlewares:
             #   - name: local
             #     namespace: traefik
-          certManager:
-            enabled: true
-            certificateIssuer: cloudflare
+          # certManager:
+          #   enabled: true
+          #   certificateIssuer: cloudflare
                             
