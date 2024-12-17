@@ -36,6 +36,8 @@ spec:
       stopAll: false
     defaultCertificate: "domain-0-wildcard"
     service:
+      main:
+        type: ClusterIP    
       tcp:
         loadBalancerIP: ${TRAEFIK_IP}
         ports:
@@ -43,7 +45,7 @@ spec:
             enabled: true
             port: 80
             protocol: http
-            #redirectTo: websecure
+            redirectTo: websecure
             # Options: Empty, 0 (ingore), or positive int
             # redirectPort:
             # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
@@ -82,6 +84,7 @@ spec:
             enabled: true
             port: 143
             protocol: http
+            redirectTo: mc-ssl            
             # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
             forwardedHeaders:
               enabled: false
@@ -118,6 +121,7 @@ spec:
             enabled: true
             port: 587
             protocol: http
+            redirectTo: mc-ssl            
             # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
             forwardedHeaders:
               enabled: false
