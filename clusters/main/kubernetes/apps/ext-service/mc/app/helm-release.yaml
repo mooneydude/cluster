@@ -46,7 +46,7 @@ spec:
         ports:
           mc1:
             enabled: true
-            protocol: http
+            protocol: tcp
             port: 993            
     ingress:
       main:
