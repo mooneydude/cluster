@@ -4,3 +4,4 @@ resources:
   - namespace.yaml
   - plex/ks.yaml
   - mc/ks.yaml
+  - mc-1/ks.yaml
