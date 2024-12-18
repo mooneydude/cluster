@@ -77,8 +77,15 @@ spec:
         backups:
           enabled: true
           credentials: s3
-          retentionPolicy: "14d"
+          scheduledBackups:
+            - name: daily-backup
+              schedule: "0 30 0 * * *"
+              backupOwnerReference: self
+              immediate: true
+              suspend: false
+          retentionPolicy: "14d"    
           # revision: "1"
+
         recovery:
           method: object_store
           credentials: s3
