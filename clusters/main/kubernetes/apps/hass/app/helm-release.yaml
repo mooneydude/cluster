@@ -77,12 +77,6 @@ spec:
         backups:
           enabled: true
           credentials: s3
-          scheduledBackups:
-            - name: daily-backup
-              schedule: "0 30 0 * * *"
-              backupOwnerReference: self
-              immediate: true
-              suspend: false
           retentionPolicy: "14d"    
           # revision: "1"
 
