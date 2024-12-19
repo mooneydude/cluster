@@ -42,7 +42,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: plex.${DOMAIN_2}
+          - host: plex.${DOMAIN_1}
         integrations:
           traefik:
             enabled: true
