@@ -6,6 +6,6 @@ resources:
   - ext-service
   - wg-easy/ks.yaml
   - hass/ks.yaml
-  # - mooneycloud/ks.yaml
+  - mooneycloud/ks.yaml
   # - homepage/ks.yaml
   # - whoami/ks.yaml
