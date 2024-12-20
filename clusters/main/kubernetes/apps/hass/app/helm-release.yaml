@@ -65,6 +65,7 @@ spec:
       config:
         volsync:
           - name: b2
+            schedule: "0 13 * * *"
             type: restic
             credentials: s3
             dest:               #VolSync Destination (Restore)
@@ -77,13 +78,13 @@ spec:
         backups:
           enabled: true
           credentials: s3
-          # scheduledBackups:
-          #   - name: daily-backup
-          #     schedule: "0 5 0 * * *"
-          #     backupOwnerReference: self
-          #     immediate: true
-          #     suspend: false          
-          retentionPolicy: "14d"    
+          scheduledBackups:
+            - name: daily-backup
+              schedule: "0 0 13 * * *"
+              backupOwnerReference: self
+              immediate: true
+              suspend: false          
+          retentionPolicy: "7d"    
           # revision: "1"
 
         recovery:
