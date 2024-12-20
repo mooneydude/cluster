@@ -39,7 +39,7 @@ spec:
           main:
             enabled: true
             protocol: http
-            port: 4443
+            port: 8082
     ingress:
       main:
         enabled: true
