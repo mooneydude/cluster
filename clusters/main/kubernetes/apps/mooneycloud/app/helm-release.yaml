@@ -54,13 +54,15 @@ spec:
       cnpg:
         main:
           cluster:
-            singleNode: true
-          pgVersion: 15
+            # singleNode: true
+            postgresql:
+                max_slot_wal_keep_size: 1GB
+                wal_compression: lz4
           # mode: recovery
           backups:
             enabled: true
             credentials: s3
-            retentionPolicy: "14d"    
+            retentionPolicy: "7d"    
           recovery:
             method: object_store
             credentials: s3            
