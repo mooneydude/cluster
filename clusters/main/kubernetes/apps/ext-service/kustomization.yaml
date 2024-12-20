@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - plex/ks.yaml
-  - mc/ks.yaml
+  # - mc/ks.yaml
