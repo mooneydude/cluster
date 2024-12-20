@@ -39,11 +39,7 @@ spec:
           main:
             enabled: true
             protocol: http
-            port: 8082
-          imaps:  # Adding new port for IMAPS
-            enabled: true
-            protocol: tcp
-            port: 993
+            port: 4443
     ingress:
       main:
         enabled: true
@@ -57,19 +53,4 @@ spec:
             #     namespace: traefik
           certManager:
             enabled: true
-            certificateIssuer: cloudflare
-    # Adding the IngressRouteTCP configuration here
-    ingressRoute:
-      imaps:
-        enabled: true
-        kind: IngressRouteTCP
-        spec:
-          entryPoints:
-            - imaps  # Ensure this entrypoint is configured in Traefik
-          routes:
-          - match: HostSNI(`mail.gulfcoastlifeinsurance.com`)  # Adjust this matcher as per your needs
-            services:
-            - name: mc-gcli-main  # This name should match your service name
-              port: 993
-          tls:
-            passthrough: true            
+            certificateIssuer: cloudflare         
