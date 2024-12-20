@@ -72,6 +72,7 @@ spec:
           - name: config
             type: restic
             credentials: s3
+            schedule: "30 12 * * *"
             dest:
               enabled: true
             src:
@@ -92,6 +93,7 @@ spec:
           - name: html
             type: restic
             credentials: s3
+            schedule: "0 13 * * *"
             dest:
               enabled: true
             src:
