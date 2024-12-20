@@ -62,7 +62,12 @@ spec:
           backups:
             enabled: true
             credentials: s3
-            retentionPolicy: "7d"    
+            scheduledBackups:
+              - name: daily-backup
+                schedule: "0 30 14 * * *"
+                backupOwnerReference: self
+                immediate: true
+                suspend: false  
           recovery:
             method: object_store
             credentials: s3            
@@ -72,11 +77,12 @@ spec:
           - name: config
             type: restic
             credentials: s3
-            schedule: "30 12 * * *"
             dest:
               enabled: true
             src:
               enabled: true
+              trigger:
+                schedule: 30 14 * * *
         # data:
         #   enabled: true
         #   type: nfs
@@ -93,11 +99,12 @@ spec:
           - name: html
             type: restic
             credentials: s3
-            schedule: "0 13 * * *"
             dest:
               enabled: true
             src:
               enabled: true
+              trigger:
+                schedule: 30 14 * * *
       nextcloud:
         collabora:
           enabled: false
