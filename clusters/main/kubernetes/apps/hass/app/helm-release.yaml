@@ -75,19 +75,14 @@ spec:
                 schedule: 30 21 * * *
     cnpg:
       main:
-        mode: recovery
+        cluster:
+          singleNode: true
+        mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
         backups:
           enabled: true
           credentials: s3
-          scheduledBackups:
-            - name: daily-backup
-              schedule: "0 0 15 * * *"
-              backupOwnerReference: self
-              immediate: true
-              suspend: false          
-          retentionPolicy: "7d"    
-          # revision: "1"
-
+          retentionPolicy: "14d"
+          revision: "1"
         recovery:
-          method: object_store
-          credentials: s3
+          credentials: minio
+          revision: "1"
