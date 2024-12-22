@@ -77,7 +77,7 @@ spec:
       main:
         cluster:
           singleNode: true
-        mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
+        # mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
         backups:
           enabled: true
           credentials: s3
@@ -91,4 +91,4 @@ spec:
           revision: "1"
         recovery:
           credentials: s3
-          revision: "1"
+          # revision: "1"
