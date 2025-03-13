@@ -31,9 +31,9 @@ spec:
         csi:
           csiAddons:
             enabled: false
-        #   snapshotter:
-        #     repository: registry.k8s.io/sig-storage/csi-snapshotter
-        #     tag: v8.0.1            
+          snapshotter:
+            repository: registry.k8s.io/sig-storage/csi-snapshotter
+            tag: v8.0.1            
         monitoring:
             enabled: true
         resources:
