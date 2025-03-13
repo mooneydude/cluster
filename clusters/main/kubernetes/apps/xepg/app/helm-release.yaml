@@ -45,6 +45,13 @@ spec:
         runAsNonRoot: false
         runAsUser: 0
         runAsGroup: 0      
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${XMLTV_IP}
+        ports:
+          main:
+            port: 80
     ingress:
       main:
         enabled: true
