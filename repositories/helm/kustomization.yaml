@@ -28,4 +28,5 @@ resources:
   - stakater.yaml
   - topolvm.yaml
   - truecharts.yaml
+  - rook-ceph.yaml
 # more goes here!

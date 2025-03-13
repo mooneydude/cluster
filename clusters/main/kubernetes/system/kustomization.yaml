@@ -15,4 +15,4 @@ resources:
   - traefik-crds/ks.yaml
   - volsync/ks.yaml
   - namespace.yaml
-  - rook-ceph/ks.yaml
+  # - rook-ceph/ks.yaml
