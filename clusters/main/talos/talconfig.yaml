@@ -40,6 +40,37 @@ nodes:
               gateway: ${GATEWAY}
           vip:
             ip: ${VIP}
+    - hostname: k8s-control-2
+      ipAddress: ${MASTER2IP_IP}
+      controlPlane: true
+      nameservers:
+        - 1.1.1.1
+        - 8.8.8.8
+      installDiskSelector:
+        size: <= 1TB
+      networkInterfaces:
+        # suffix is the adapter mac adres.
+        - interface: eth0
+          addresses:
+            - ${MASTER2IP_CIDR}
+          routes:
+            - network: 0.0.0.0/0
+              gateway: ${GATEWAY}
+          vip:
+            ip: ${VIP}  
+    - hostname: k8s-control-3
+      ipAddress: ${MASTER3IP_IP}
+      controlPlane: true
+      nameservers:
+        - 1.1.1.1
+        - 8.8.8.8
+      installDiskSelector:
+        size: <= 1TB
+      schematic:
+          customization:
+              systemExtensions:
+                  officialExtensions:
+                      - siderolabs/qemu-guest-agent
 controlPlane:
     patches:
         - '@./patches/controlplane.yaml'
@@ -55,7 +86,7 @@ controlPlane:
                 officialExtensions:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
-                    - siderolabs/qemu-guest-agent
+                    - siderolabs/intel-ucode 
     machineFiles:
     - content: |
         [plugins."io.containerd.grpc.v1.cri"]
