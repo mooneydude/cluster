@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - cloudflared/ks.yaml
-  - xepg/ks.yaml
+  # - xepg/ks.yaml
   # - jellyfin/ks.yaml
