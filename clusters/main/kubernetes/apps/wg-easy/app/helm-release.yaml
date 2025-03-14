@@ -72,9 +72,9 @@ spec:
               enabled: true 
     workload:
       main:
-        # type: Deployment
-        # strategy: RollingUpdate
-        # replicas: 2      
+        type: Deployment
+        strategy: RollingUpdate
+        replicas: 2      
         podSpec:
           containers:
             main:
