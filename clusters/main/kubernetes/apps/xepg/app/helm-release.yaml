@@ -52,17 +52,6 @@ spec:
         ports:
           main:
             port: 80
-    ingress:
-      main:
-        enabled: true
-        hosts:
-          - host: tv.${DOMAIN_1}
-        integrations:
-          traefik:
-            enabled: true
-          certManager:
-            enabled: true
-            certificateIssuer: cloudflare  
     workload:
       main:
         podSpec:
