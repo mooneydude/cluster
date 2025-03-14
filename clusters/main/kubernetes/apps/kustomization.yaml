@@ -5,5 +5,5 @@ resources:
   - cloudflared/ks.yaml
   - xepg/ks.yaml
   # - jellyfin/ks.yaml
-  # - wg-easy/ks.yaml
+  - wg-easy/ks.yaml
   - hass/ks.yaml
