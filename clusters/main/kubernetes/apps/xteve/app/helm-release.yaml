@@ -37,7 +37,7 @@ spec:
       s3:
         type: s3
         url: "${MINIO_S3URL}"
-        bucket: "${MINIO_S3PREFIX}-mytv"
+        bucket: "${MINIO_S3PREFIX}-xteve"
         accessKey: "${MINIO_S3ID}"
         secretKey: "${MINIO_S3KEY}"
         encrKey: "${MINIO_S3KEY}"
