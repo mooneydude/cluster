@@ -82,29 +82,29 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: "0 16 * * *"      
+                schedule: "30 14 * * *"      
       zigbeedongle:
         enabled: true
         type: device
         hostPath: /dev/serial/by-id/usb-Silicon_Labs_CP2102N_USB_to_UART_Bridge_Controller_0001-if00-port0              
-    cnpg:
-      main:
-        mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
-        backups:
-          enabled: false  # Set to 'false' when performing new install (recovery)
-          credentials: s3
-          scheduledBackups:
-            - name: daily-backup
-              schedule: "0 15 16 * * *"
-              backupOwnerReference: self
-              immediate: true
-              suspend: false          
-          retentionPolicy: "14d"
-          revision: "3"
-        recovery:
-          revision: "2"
-          credentials: s3
-          method: object_store
+    # cnpg:
+    #   main:
+    #     mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
+    #     backups:
+    #       enabled: false  # Set to 'false' when performing new install (recovery)
+    #       credentials: s3
+    #       scheduledBackups:
+    #         - name: daily-backup
+    #           schedule: "0 15 16 * * *"
+    #           backupOwnerReference: self
+    #           immediate: true
+    #           suspend: false          
+    #       retentionPolicy: "14d"
+    #       revision: "3"
+    #     recovery:
+    #       revision: "2"
+    #       credentials: s3
+    #       method: object_store
 
     # persistence:
     #   config:
