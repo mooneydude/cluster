@@ -98,9 +98,9 @@ spec:
       main:
         mode: recovery
         backups:
-          enabled: true
+          enabled: false
           credentials: s3
-          revision: "2"
+          revision: "3"
           scheduledBackups:
             - name: daily-backup
               schedule: "0 45 16 * * *"
@@ -110,7 +110,7 @@ spec:
         recovery:
             method: object_store
             credentials: s3
-            revision: "1"
+            revision: "2"
     # podOptions:
     #     nodeSelector:
     #         kubernetes.io/hostname: "k8s-worker-3"            
