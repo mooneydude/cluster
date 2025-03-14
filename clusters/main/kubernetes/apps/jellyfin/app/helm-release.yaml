@@ -60,11 +60,3 @@ spec:
               enabled: true
             src:
               enabled: true
-
-      # persistence:
-      #   config:
-      #     enabled: true
-      #     storageClass: ceph-filesystem
-      #     size: 1Gi
-      #     accessModes:
-      #       - ReadWriteMany
