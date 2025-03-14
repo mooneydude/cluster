@@ -98,7 +98,7 @@ spec:
       main:
         mode: recovery
         backups:
-          enabled: false
+          enabled: true
           credentials: s3
           revision: "3"
           scheduledBackups:
