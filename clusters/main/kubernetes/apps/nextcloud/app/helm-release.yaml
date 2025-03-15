@@ -65,10 +65,10 @@ spec:
         default_phone_region: US
     persistence:
       config:
-        storageClass: ceph-filesystem
-        size: 1Gi
-        accessModes:
-          - ReadWriteMany      
+        # storageClass: ceph-filesystem
+        # size: 1Gi
+        # accessModes:
+        #   - ReadWriteMany      
         volsync:
           - name: config
             type: restic
@@ -80,10 +80,10 @@ spec:
               trigger:
                 schedule: 45 16 * * *
       html:
-        storageClass: ceph-filesystem
-        size: 1Gi
-        accessModes:
-          - ReadWriteMany      
+        # storageClass: ceph-filesystem
+        # size: 1Gi
+        # accessModes:
+        #   - ReadWriteMany      
         volsync:
           - name: html
             type: restic
@@ -104,7 +104,7 @@ spec:
         backups:
           enabled: false
           credentials: s3
-          revision: "2"
+          revision: "3"
           scheduledBackups:
             - name: daily-backup
               schedule: "0 45 16 * * *"
@@ -114,10 +114,10 @@ spec:
         recovery:
             method: object_store
             credentials: s3
-            revision: "1"
-    # podOptions:
-    #     nodeSelector:
-    #         kubernetes.io/hostname: "k8s-worker-3"            
+            revision: "2"
+    podOptions:
+        nodeSelector:
+            kubernetes.io/hostname: "k8s-worker-1"            
     # workload:
     #   main:
     #     type: Deployment
