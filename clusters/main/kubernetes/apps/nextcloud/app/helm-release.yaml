@@ -65,11 +65,13 @@ spec:
         default_phone_region: US
     persistence:
       config:
+        storageClass: ceph-filesystem
+        size: 1Gi
+        accessModes:
+          - ReadWriteMany      
         volsync:
           - name: config
             type: restic
-            # cleanupTempPVC: true
-            # cleanupCachePVC: true
             credentials: s3
             dest:
               enabled: true
@@ -78,11 +80,13 @@ spec:
               trigger:
                 schedule: 45 16 * * *
       html:
+        storageClass: ceph-filesystem
+        size: 1Gi
+        accessModes:
+          - ReadWriteMany      
         volsync:
           - name: html
             type: restic
-            # cleanupTempPVC: true
-            # cleanupCachePVC: true
             credentials: s3
             dest:
               enabled: true
