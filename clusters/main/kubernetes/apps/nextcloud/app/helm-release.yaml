@@ -44,7 +44,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: mycloud.${DOMAIN_1}
+          - host: cloud.${DOMAIN_1}
             paths:
             - path: /
               pathType: Prefix
@@ -102,7 +102,7 @@ spec:
       main:
         mode: recovery
         backups:
-          enabled: false
+          enabled: true
           credentials: s3
           revision: "3"
           scheduledBackups:
