@@ -37,7 +37,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: metrics.${DOMAIN_1}
+          - host: cluster.${DOMAIN_1}
         integrations:
           traefik:
             enabled: true
