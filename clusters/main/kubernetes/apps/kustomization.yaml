@@ -9,5 +9,5 @@ resources:
   - hass/ks.yaml
   - vaultwarden/ks.yaml
   - xteve/ks.yaml
-  - nextcloud/ks.yaml
-  - grafana/ks.yaml
+  # - nextcloud/ks.yaml
+  # - grafana/ks.yaml
