@@ -10,4 +10,4 @@ resources:
   - vaultwarden/ks.yaml
   - xteve/ks.yaml
   # - nextcloud/ks.yaml
-  - grafana/ks.yaml
+  # - grafana/ks.yaml
