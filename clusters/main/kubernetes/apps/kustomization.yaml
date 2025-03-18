@@ -11,3 +11,4 @@ resources:
   - xteve/ks.yaml
   - nextcloud/ks.yaml
   - grafana/ks.yaml
+  - docuseal/ks.yaml
