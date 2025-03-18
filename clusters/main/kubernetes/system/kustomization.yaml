@@ -16,4 +16,4 @@ resources:
   - volsync/ks.yaml
   - namespace.yaml
   - rook-ceph/ks.yaml
-  - kube-prometheus-stack/ks.yaml
+  # - kube-prometheus-stack/ks.yaml
