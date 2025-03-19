@@ -19,4 +19,4 @@ spec:
     workload:
       main:
         enabled: true
-        replicas: 2 
+        replicas: 3 
