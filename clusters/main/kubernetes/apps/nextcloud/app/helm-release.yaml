@@ -90,23 +90,23 @@ spec:
         type: nfs
         server: ${TRUENAS_IP}
         path: /mnt/data1/nc_userdata
-    cnpg:
-      main:
-        mode: recovery
-        backups:
-          enabled: false
-          credentials: s3
-          revision: "2"
-          scheduledBackups:
-            - name: daily-backup
-              schedule: "0 0 16 * * *"
-              backupOwnerReference: self
-              immediate: true
-              suspend: false          
-        recovery:
-            method: object_store
-            credentials: s3
-            revision: "1"
+    # cnpg:
+    #   main:
+    #     mode: recovery
+    #     backups:
+    #       enabled: false
+    #       credentials: s3
+    #       revision: "2"
+    #       scheduledBackups:
+    #         - name: daily-backup
+    #           schedule: "0 0 16 * * *"
+    #           backupOwnerReference: self
+    #           immediate: true
+    #           suspend: false          
+    #     recovery:
+    #         method: object_store
+    #         credentials: s3
+    #         revision: "1"
     podOptions:
         nodeSelector:
             kubernetes.io/hostname: "k8s-worker-1"            
