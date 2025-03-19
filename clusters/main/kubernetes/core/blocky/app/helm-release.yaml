@@ -75,30 +75,3 @@ spec:
     cnpg:
       main:
         enabled: false
-
-    workload:
-      main:
-        replicas: 2
-        strategy: RollingUpdate
-        # podSpec:
-        #   containers:
-        #     main:
-        #       probes:
-        #         liveness:
-        #           enabled: false
-        #           type: exec
-        #           command:
-        #             - /app/blocky
-        #             - healthcheck
-        #         readiness:
-        #           enabled: false
-        #           type: exec
-        #           command:
-        #             - /app/blocky
-        #             - healthcheck
-        #         startup:
-        #           enabled: false
-        #           type: exec
-        #           command:
-        #             - /app/blocky
-        #             - healthcheck        
