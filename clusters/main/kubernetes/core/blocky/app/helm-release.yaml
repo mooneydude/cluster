@@ -78,7 +78,7 @@ spec:
 
     workload:
       main:
-        replicas: 2
+        replicas: 3
         strategy: RollingUpdate
         # podSpec:
         #   containers:
