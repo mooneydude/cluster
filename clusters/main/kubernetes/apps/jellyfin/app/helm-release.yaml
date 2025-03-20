@@ -46,7 +46,7 @@ spec:
             - host: tv.${DOMAIN_1}
           integrations:
             traefik:
-              enabled: true
+              enabled: false
             certManager:
               enabled: true
               certificateIssuer: cloudflare  
