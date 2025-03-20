@@ -46,12 +46,13 @@ spec:
         externalTrafficPolicy: Local
     ingress:
       main:
+        ingressClassName: internal
         enabled: true
         hosts:
           - host: wireguard.${DOMAIN_1}
         integrations:
           traefik:
-            enabled: true
+            enabled: false
           certManager:
             enabled: true
             certificateIssuer: cloudflare
