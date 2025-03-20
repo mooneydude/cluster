@@ -120,17 +120,17 @@ spec:
         dashboard:
           annotations:
             # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-            nginx.org/ssl-services: "ssl-svc"
+            kubernetes.io/ingress.class: nginx
             cert-manager.io/cluster-issuer: cloudflare
             cert-manager.io/private-key-rotation-policy: Always
             nginx.ingress.kubernetes.io/ssl-redirect: "true"
             # traefik.ingress.kubernetes.io/router.middlewares: traefik-chain-basic@kubernetescrd
           tls:
             - hosts:
-                - storage.${DOMAIN_1}
+                - rook-ceph.${DOMAIN_1}
               secretName: rook-ceph-dashboard
           host:
-            name: "storage.${DOMAIN_1}"
+            name: "rook-ceph.${DOMAIN_1}"
             path: "/"
       cephBlockPools:
         - name: ceph-nvme
