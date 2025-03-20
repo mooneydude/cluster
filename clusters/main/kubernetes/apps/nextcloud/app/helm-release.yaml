@@ -43,19 +43,16 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: cloud.${DOMAIN_1}
             paths:
             - path: /
               pathType: Prefix
-          - host: nextcloud.${DOMAIN_1}
-            paths:
-            - path: /
-              pathType: Prefix              
         integrations:
           certManager:
             certificateIssuer: cloudflare
-            enabled: true
+            enabled: false
           traefik:
             enabled: true
             entrypoints:
