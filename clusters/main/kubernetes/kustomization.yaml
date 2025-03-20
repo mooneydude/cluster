@@ -7,4 +7,4 @@ resources:
   - flux-system
   - kube-system
   - system
-  - network
+  # - network
