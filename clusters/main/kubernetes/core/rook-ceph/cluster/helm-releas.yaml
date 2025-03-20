@@ -126,10 +126,10 @@ spec:
             # traefik.ingress.kubernetes.io/router.middlewares: traefik-chain-basic@kubernetescrd
           tls:
             - hosts:
-                - storage.${DOMAIN_1}
+                - rook.${DOMAIN_1}
               secretName: rook-ceph-dashboard
           host:
-            name: "storage.${DOMAIN_1}"
+            name: "rook.${DOMAIN_1}"
             path: "/"
       cephBlockPools:
         - name: ceph-nvme
