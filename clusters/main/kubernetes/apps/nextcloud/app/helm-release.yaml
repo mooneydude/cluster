@@ -50,13 +50,13 @@ spec:
             - path: /
               pathType: Prefix
         integrations:
-          certManager:
-            certificateIssuer: cloudflare
-            enabled: true
           traefik:
             enabled: false
             entrypoints:
-              - websecure
+              - websecure        
+          certManager:
+            certificateIssuer: cloudflare
+            enabled: true
     nextcloud:
       credentials:
         initialAdminPassword: ${NEXTCLOUD_PWD}
