@@ -42,8 +42,9 @@ spec:
       ingress:
         main:
           enabled: true
+          ingressClassName: internal 
           hosts:
-            - host: tv.${DOMAIN_1}
+            - host: jellyfin.${DOMAIN_1}
           integrations:
             traefik:
               enabled: false
