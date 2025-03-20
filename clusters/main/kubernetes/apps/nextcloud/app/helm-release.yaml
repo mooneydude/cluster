@@ -52,9 +52,9 @@ spec:
         integrations:
           certManager:
             certificateIssuer: cloudflare
-            enabled: false
-          traefik:
             enabled: true
+          traefik:
+            enabled: false
             entrypoints:
               - websecure
     nextcloud:
