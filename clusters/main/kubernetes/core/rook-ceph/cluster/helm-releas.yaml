@@ -119,11 +119,11 @@ spec:
       ingress:
         dashboard:
           annotations:
-            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
             cert-manager.io/cluster-issuer: cloudflare
             cert-manager.io/private-key-rotation-policy: Always
-            traefik.ingress.kubernetes.io/router.tls: 'true'
-            traefik.ingress.kubernetes.io/router.middlewares: traefik-chain-basic@kubernetescrd
+            nginx.ingress.kubernetes.io/ssl-redirect: "true"
+            # traefik.ingress.kubernetes.io/router.middlewares: traefik-chain-basic@kubernetescrd
           tls:
             - hosts:
                 - storage.${DOMAIN_1}
