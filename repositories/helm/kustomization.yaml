@@ -29,4 +29,5 @@ resources:
   - topolvm.yaml
   - truecharts.yaml
   - rook-ceph.yaml
+  - ingress-nginx.yaml
 # more goes here!
