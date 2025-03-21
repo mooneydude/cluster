@@ -66,10 +66,10 @@ spec:
         default_phone_region: US
     persistence:
       config:
-        storageClass: ceph-filesystem
-        size: 1Gi
-        accessModes:
-          - ReadWriteMany        
+        # storageClass: ceph-filesystem
+        # size: 1Gi
+        # accessModes:
+        #   - ReadWriteMany        
         volsync:
           - name: config
             type: restic
@@ -81,10 +81,10 @@ spec:
               trigger:
                 schedule: 0 3 * * *
       html:
-        storageClass: ceph-filesystem
-        size: 10Gi
-        accessModes:
-          - ReadWriteMany        
+        # storageClass: ceph-filesystem
+        # size: 10Gi
+        # accessModes:
+        #   - ReadWriteMany        
         volsync:
           - name: html
             type: restic
