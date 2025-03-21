@@ -45,7 +45,7 @@ spec:
         enabled: true
         ingressClassName: external
         hosts:
-          - host: thecloud.${DOMAIN_1}
+          - host: mycloud.${DOMAIN_1}
             paths:
             - path: /
               pathType: Prefix
@@ -95,10 +95,15 @@ spec:
       #         enabled: true
       #         trigger:
       #           schedule: 0 3 * * *
+      # data:
+      #   type: nfs
+      #   server: ${TRUENAS_IP}
+      #   path: /mnt/data1/nc_userdata
       data:
-        type: nfs
-        server: ${TRUENAS_IP}
-        path: /mnt/data1/nc_userdata
+        storageClass: ceph-filesystem
+        size: 100Gi
+        accessModes:
+          - ReadWriteMany
     # cnpg:
     #   main:
     #     # mode: recovery
