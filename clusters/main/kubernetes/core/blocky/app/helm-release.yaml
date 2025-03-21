@@ -66,11 +66,11 @@ spec:
       # optional one of: mysql, postgresql, csv, csv-client. If empty, log to console only
       type: ""
 
-    configmap:
-      dashboard:
-        enabled: false
-      datasource:
-        enabled: false
+    # configmap:
+    #   dashboard:
+    #     enabled: false
+    #   datasource:
+    #     enabled: false
 
     cnpg:
       main:
