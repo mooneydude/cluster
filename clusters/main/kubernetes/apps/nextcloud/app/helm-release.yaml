@@ -107,7 +107,7 @@ spec:
         recovery:
             method: object_store
             credentials: s3
-            revision: "2"
+            revision: "1"
     # podOptions:
     #     nodeSelector:
     #         kubernetes.io/hostname: "k8s-worker-1"            
