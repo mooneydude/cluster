@@ -65,11 +65,11 @@ spec:
         accessIP: ${TRAEFIK_IP}
         default_phone_region: US
     persistence:
-      # config:
-      #   # storageClass: ceph-filesystem
-      #   # size: 1Gi
-      #   # accessModes:
-      #   #   - ReadWriteMany        
+      config:
+        storageClass: ceph-filesystem
+        size: 1Gi
+        accessModes:
+          - ReadWriteMany        
       #   volsync:
       #     - name: config
       #       type: restic
@@ -80,11 +80,11 @@ spec:
       #         enabled: true
       #         trigger:
       #           schedule: 0 3 * * *
-      # html:
-      #   # storageClass: ceph-filesystem
-      #   # size: 10Gi
-      #   # accessModes:
-      #   #   - ReadWriteMany        
+      html:
+        storageClass: ceph-filesystem
+        size: 10Gi
+        accessModes:
+          - ReadWriteMany        
       #   volsync:
       #     - name: html
       #       type: restic
