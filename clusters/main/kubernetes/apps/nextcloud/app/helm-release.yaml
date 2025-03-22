@@ -45,7 +45,7 @@ spec:
         enabled: true
         ingressClassName: external
         hosts:
-          - host: mycloud.${DOMAIN_1}
+          - host: cloud.${DOMAIN_1}
             paths:
             - path: /
               pathType: Prefix
@@ -101,11 +101,11 @@ spec:
         path: /mnt/data1/nc_userdata
     cnpg:
       main:
-        # mode: recovery
+        mode: recovery
         backups:
           enabled: true
           credentials: s3
-          revision: ""
+          revision: "1"
           scheduledBackups:
             - name: daily-backup
               schedule: "0 0 3 * * *"
@@ -115,7 +115,7 @@ spec:
         recovery:
             method: object_store
             credentials: s3
-            revision: "1"
+            revision: ""
     # podOptions:
     #     nodeSelector:
     #         kubernetes.io/hostname: "k8s-worker-1"            
