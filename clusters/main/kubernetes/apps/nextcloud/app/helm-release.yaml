@@ -57,6 +57,22 @@ spec:
           certManager:
             certificateIssuer: cloudflare
             enabled: true
+      main-internal:
+        enabled: true
+        ingressClassName: internal
+        hosts:
+          - host: cloud-internal.${DOMAIN_1}
+            paths:
+            - path: /
+              pathType: Prefix
+        integrations:
+          traefik:
+            enabled: false
+            entrypoints:
+              - websecure        
+          certManager:
+            certificateIssuer: cloudflare
+            enabled: true            
     nextcloud:
       credentials:
         initialAdminPassword: ${NEXTCLOUD_PWD}
