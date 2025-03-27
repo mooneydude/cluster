@@ -111,7 +111,7 @@ spec:
               schedule: "0 0 15 * * *"
               backupOwnerReference: self
               immediate: true
-              suspend: false          
+              suspend: false 
         recovery:
           method: object_store
           credentials: s3
