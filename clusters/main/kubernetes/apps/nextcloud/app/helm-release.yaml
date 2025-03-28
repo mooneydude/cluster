@@ -101,11 +101,11 @@ spec:
         path: /mnt/data1/nc_userdata
     cnpg:
       main:
-        mode: recovery
+        # mode: recovery
         backups:
           enabled: true
           credentials: s3
-          revision: "2"
+          revision: "1"
           scheduledBackups:
             - name: daily-backup
               schedule: "0 0 15 * * *"
@@ -115,7 +115,7 @@ spec:
         recovery:
           method: object_store
           credentials: s3
-          revision: "2"
+          # revision: "1"
     # podOptions:
     #     nodeSelector:
     #         kubernetes.io/hostname: "k8s-worker-1"            
