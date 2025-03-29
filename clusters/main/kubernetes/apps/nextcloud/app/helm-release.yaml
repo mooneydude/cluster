@@ -45,7 +45,7 @@ spec:
         enabled: true
         ingressClassName: external
         hosts:
-          - host: nextcloud.${DOMAIN_1}
+          - host: cloud.${DOMAIN_1}
             paths:
             - path: /
               pathType: Prefix
@@ -57,13 +57,6 @@ spec:
           certManager:
             certificateIssuer: cloudflare
             enabled: true
-    nextcloud:
-      credentials:
-        initialAdminPassword: ${NEXTCLOUD_PWD}
-        initialAdminUser: ${NEXTCLOUD_USER}
-      general:
-        accessIP: ${TRAEFIK_IP}
-        default_phone_region: US
     persistence:
       config:
         # storageClass: ceph-filesystem
@@ -79,7 +72,7 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: 0 15 * * *
+                schedule: 30 22 * * *
       html:
         # storageClass: ceph-filesystem
         # size: 10Gi
@@ -94,7 +87,7 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: 0 15 * * *
+                schedule: 30 22 * * *
       data:
         type: nfs
         server: ${TRUENAS_IP}
@@ -108,7 +101,7 @@ spec:
           revision: "1"
           scheduledBackups:
             - name: daily-backup
-              schedule: "0 0 15 * * *"
+              schedule: "0 30 22 * * *"
               backupOwnerReference: self
               immediate: true
               suspend: false 
@@ -116,6 +109,26 @@ spec:
           method: object_store
           credentials: s3
           # revision: "1"
+    nextcloud:
+      credentials:
+        initialAdminPassword: ${NEXTCLOUD_PWD}
+        initialAdminUser: ${NEXTCLOUD_USER}
+      general:
+        accessIP: ${NGINX_EXTERNAL_IP}
+        default_phone_region: US
+      previews:
+        providers:
+        - BMP
+        - GIF
+        - JPEG
+        - Krita
+        - MarkDown
+        - MP3
+        - OpenDocument
+        - PNG
+        - TXT
+        - XBitmap        
+        
     # podOptions:
     #     nodeSelector:
     #         kubernetes.io/hostname: "k8s-worker-1"            
