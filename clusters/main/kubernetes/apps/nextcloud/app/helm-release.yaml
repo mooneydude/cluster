@@ -63,55 +63,55 @@ spec:
         size: 1Gi
         accessModes:
           - ReadWriteMany        
-        volsync:
-          - name: config
-            type: restic
-            credentials: s3
-            dest:
-              enabled: true
-            src:
-              enabled: true
-              trigger:
-                schedule: 0 14 * * *
+        # volsync:
+        #   - name: config
+        #     type: restic
+        #     credentials: s3
+        #     dest:
+        #       enabled: true
+        #     src:
+        #       enabled: true
+        #       trigger:
+        #         schedule: 0 15 * * *
       html:
         storageClass: ceph-filesystem
         size: 10Gi
         accessModes:
           - ReadWriteMany        
-        volsync:
-          - name: html
-            type: restic
-            credentials: s3
-            dest:
-              enabled: true
-            src:
-              enabled: true
-              trigger:
-                schedule: 0 14 * * *
-      # data:
-      #   type: nfs
-      #   server: ${TRUENAS_IP}
-      #   path: /mnt/data1/nc_userdata
+        # volsync:
+        #   - name: html
+        #     type: restic
+        #     credentials: s3
+        #     dest:
+        #       enabled: true
+        #     src:
+        #       enabled: true
+        #       trigger:
+        #         schedule: 0 15 * * *
       data:
-        storageClass: ceph-filesystem
-        size: 100Gi
-        accessModes:
-          - ReadWriteMany        
-    cnpg:
-      main:
-        mode: recovery
-        backups:
-          enabled: true
-          credentials: s3
-          scheduledBackups:
-            - name: daily-backup
-              schedule: "0 15 14 * * *"
-              backupOwnerReference: self
-              immediate: true
-              suspend: false 
-        recovery:
-          method: object_store
-          credentials: s3
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/nc_userdata
+      # data:
+      #   storageClass: ceph-filesystem
+      #   size: 100Gi
+      #   accessModes:
+      #     - ReadWriteMany        
+    # cnpg:
+    #   main:
+    #     mode: recovery
+    #     backups:
+    #       enabled: true
+    #       credentials: s3
+    #       scheduledBackups:
+    #         - name: daily-backup
+    #           schedule: "0 15 14 * * *"
+    #           backupOwnerReference: self
+    #           immediate: true
+    #           suspend: false 
+    #     recovery:
+    #       method: object_store
+    #       credentials: s3
     nextcloud:
       credentials:
         initialAdminPassword: ${NEXTCLOUD_PWD}
