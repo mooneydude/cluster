@@ -63,31 +63,31 @@ spec:
         size: 1Gi
         accessModes:
           - ReadWriteMany        
-        volsync:
-          - name: config
-            type: restic
-            credentials: s3
-            dest:
-              enabled: true
-            src:
-              enabled: true
-              trigger:
-                schedule: 30 22 * * *
+        # volsync:
+        #   - name: config
+        #     type: restic
+        #     credentials: s3
+        #     dest:
+        #       enabled: true
+        #     src:
+        #       enabled: true
+        #       trigger:
+        #         schedule: 30 22 * * *
       html:
         storageClass: ceph-filesystem
         size: 10Gi
         accessModes:
           - ReadWriteMany        
-        volsync:
-          - name: html
-            type: restic
-            credentials: s3
-            dest:
-              enabled: true
-            src:
-              enabled: true
-              trigger:
-                schedule: 30 22 * * *
+        # volsync:
+        #   - name: html
+        #     type: restic
+        #     credentials: s3
+        #     dest:
+        #       enabled: true
+        #     src:
+        #       enabled: true
+        #       trigger:
+        #         schedule: 30 22 * * *
       data:
         type: nfs
         server: ${TRUENAS_IP}
