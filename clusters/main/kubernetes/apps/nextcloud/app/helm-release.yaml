@@ -88,10 +88,15 @@ spec:
         #       enabled: true
         #       trigger:
         #         schedule: 30 22 * * *
+      # data:
+      #   type: nfs
+      #   server: ${TRUENAS_IP}
+      #   path: /mnt/data1/nc_userdata
       data:
-        type: nfs
-        server: ${TRUENAS_IP}
-        path: /mnt/data1/nc_userdata
+        storageClass: ceph-filesystem
+        size: 100Gi
+        accessModes:
+          - ReadWriteMany        
     cnpg:
       main:
         # mode: recovery
