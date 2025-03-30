@@ -97,21 +97,21 @@ spec:
       #   size: 100Gi
       #   accessModes:
       #     - ReadWriteMany        
-    # cnpg:
-    #   main:
-    #     mode: recovery
-    #     backups:
-    #       enabled: true
-    #       credentials: s3
-    #       scheduledBackups:
-    #         - name: daily-backup
-    #           schedule: "0 15 14 * * *"
-    #           backupOwnerReference: self
-    #           immediate: true
-    #           suspend: false 
-    #     recovery:
-    #       method: object_store
-    #       credentials: s3
+    cnpg:
+      main:
+        # mode: recovery
+        backups:
+          enabled: true
+          credentials: s3
+          scheduledBackups:
+            - name: daily-backup
+              schedule: "0 0 15 * * *"
+              backupOwnerReference: self
+              immediate: true
+              suspend: false 
+        recovery:
+          method: object_store
+          credentials: s3
     nextcloud:
       credentials:
         initialAdminPassword: ${NEXTCLOUD_PWD}
