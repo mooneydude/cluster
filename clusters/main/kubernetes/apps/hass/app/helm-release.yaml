@@ -56,7 +56,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: external
         hosts:
           - host: ha.${DOMAIN_1}
         integrations:
