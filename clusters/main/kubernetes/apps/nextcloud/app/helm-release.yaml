@@ -92,21 +92,21 @@ spec:
         type: nfs
         server: ${TRUENAS_IP}
         path: /mnt/data1/nc_userdata
-    # cnpg:
-    #   main:
-    #     # mode: recovery
-    #     backups:
-    #       enabled: true
-    #       credentials: s3
-    #       scheduledBackups:
-    #         - name: daily-backup
-    #           schedule: "0 30 16 * * *"
-    #           backupOwnerReference: self
-    #           immediate: true
-    #           suspend: false 
-    #     recovery:
-    #       method: object_store
-    #       credentials: s3
+    cnpg:
+      main:
+        # mode: recovery
+        backups:
+          enabled: true
+          credentials: s3
+          scheduledBackups:
+            - name: daily-backup
+              schedule: "0 30 16 * * *"
+              backupOwnerReference: self
+              immediate: true
+              suspend: false 
+        recovery:
+          method: object_store
+          credentials: s3
     nextcloud:
       credentials:
         initialAdminPassword: ${NEXTCLOUD_PWD}
