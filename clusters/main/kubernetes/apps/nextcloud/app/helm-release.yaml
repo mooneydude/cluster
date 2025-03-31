@@ -45,7 +45,7 @@ spec:
         enabled: true
         ingressClassName: external
         hosts:
-          - host: nextcloud.${DOMAIN_1}
+          - host: cloud.${DOMAIN_1}
             paths:
             - path: /
               pathType: Prefix
@@ -68,11 +68,13 @@ spec:
             type: restic
             credentials: s3
             dest:
+              volumeSnapshotClassName: ceph-filesystem
               enabled: true
             src:
+              volumeSnapshotClassName: ceph-filesystem
               enabled: true
               trigger:
-                schedule: 0 16 * * *
+                schedule: 30 22 * * *
       html:
         storageClass: ceph-filesystem
         size: 10Gi
@@ -83,11 +85,13 @@ spec:
             type: restic
             credentials: s3
             dest:
+              volumeSnapshotClassName: ceph-filesystem
               enabled: true
             src:
+              volumeSnapshotClassName: ceph-filesystem
               enabled: true
               trigger:
-                schedule: 0 16 * * *
+                schedule: 30 22 * * *
       data:
         type: nfs
         server: ${TRUENAS_IP}
@@ -100,7 +104,7 @@ spec:
           credentials: s3
           scheduledBackups:
             - name: daily-backup
-              schedule: "0 30 16 * * *"
+              schedule: "0 0 23 * * *"
               backupOwnerReference: self
               immediate: true
               suspend: false 
