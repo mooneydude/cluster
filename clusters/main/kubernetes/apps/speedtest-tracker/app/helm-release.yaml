@@ -72,7 +72,7 @@ spec:
         volsync:
           - name: config
             type: restic
-            volumeSnapshotClassName: csi-ceph-blockpool
+            # volumeSnapshotClassName: csi-ceph-blockpool
             credentials: s3
             dest:               
               enabled: true
@@ -80,13 +80,13 @@ spec:
               enabled: true
     cnpg:
       main:
-        # mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
+        mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
         backups:
-          enabled: true
+          enabled: false
           credentials: s3
           retentionPolicy: "14d"
-          revision: "1"
+          revision: "2"
         recovery:
           method: object_store
           credentials: s3
-          # revision: "1"
+          revision: "1"
