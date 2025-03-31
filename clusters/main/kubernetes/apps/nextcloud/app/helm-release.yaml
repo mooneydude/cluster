@@ -36,7 +36,7 @@ spec:
       s3:
         type: s3
         url: "${S3URL}"
-        bucket: "${S3PREFIX}-testme"
+        bucket: "${S3PREFIX}-nc"
         accessKey: "${S3ID}"
         secretKey: "${S3KEY}"
         encrKey: "${S3KEY}"
@@ -63,31 +63,31 @@ spec:
         size: 1Gi
         accessModes:
           - ReadWriteMany        
-        # volsync:
-        #   - name: config
-        #     type: restic
-        #     credentials: s3
-        #     dest:
-        #       enabled: true
-        #     src:
-        #       enabled: true
-        #       trigger:
-        #         schedule: 0 16 * * *
+        volsync:
+          - name: config
+            type: restic
+            credentials: s3
+            dest:
+              enabled: true
+            src:
+              enabled: true
+              trigger:
+                schedule: 0 16 * * *
       html:
         storageClass: ceph-filesystem
         size: 10Gi
         accessModes:
           - ReadWriteMany        
-        # volsync:
-        #   - name: html
-        #     type: restic
-        #     credentials: s3
-        #     dest:
-        #       enabled: true
-        #     src:
-        #       enabled: true
-        #       trigger:
-        #         schedule: 0 16 * * *
+        volsync:
+          - name: html
+            type: restic
+            credentials: s3
+            dest:
+              enabled: true
+            src:
+              enabled: true
+              trigger:
+                schedule: 0 16 * * *
       data:
         type: nfs
         server: ${TRUENAS_IP}
