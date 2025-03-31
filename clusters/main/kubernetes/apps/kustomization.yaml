@@ -12,5 +12,5 @@ resources:
   # - nextcloud/ks.yaml
   - grafana/ks.yaml
   # - docuseal/ks.yaml
-  # - speedtest-tracker/ks.yaml
+  - speedtest-tracker/ks.yaml
   # - nc-talk/ks.yaml
