@@ -78,6 +78,13 @@ spec:
               enabled: true
             src:              
               enabled: true
+      volumesnapshot:
+        enabled: true
+        type: pvc
+        targetSelectAll: true
+        volumeSnapshots:
+          - name: "mysnapshot"
+            volumeSnapshotClassName: csi-ceph-blockpool              
     cnpg:
       main:
         mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
