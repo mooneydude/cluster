@@ -74,7 +74,7 @@ spec:
               volumeSnapshotClassName: ceph-filesystem
               enabled: true
               trigger:
-                schedule: 30 22 * * *
+                schedule: 20 1 * * *
       html:
         storageClass: ceph-filesystem
         size: 10Gi
@@ -91,26 +91,28 @@ spec:
               volumeSnapshotClassName: ceph-filesystem
               enabled: true
               trigger:
-                schedule: 30 22 * * *
+                schedule: 20 1 * * *
       data:
         type: nfs
         server: ${TRUENAS_IP}
         path: /mnt/data1/nc_userdata
     cnpg:
       main:
-        # mode: recovery
+        mode: recovery
         backups:
           enabled: true
           credentials: s3
+          revision: "1"
           scheduledBackups:
             - name: daily-backup
-              schedule: "0 0 23 * * *"
+              schedule: "0 30 1 * * *"
               backupOwnerReference: self
               immediate: true
               suspend: false 
         recovery:
           method: object_store
           credentials: s3
+          revision: ""
     nextcloud:
       credentials:
         initialAdminPassword: ${NEXTCLOUD_PWD}
@@ -130,10 +132,6 @@ spec:
         - PNG
         - TXT
         - XBitmap        
-
-    # podOptions:
-    #     nodeSelector:
-    #         kubernetes.io/hostname: "k8s-worker-1"            
     workload:
       main:
         type: Deployment

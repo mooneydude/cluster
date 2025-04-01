@@ -81,7 +81,7 @@ spec:
               enabled: true
     cnpg:
       main:
-        # mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
+        mode: recovery   # Set to 'recovery' when recovery from S3, also change the revisions 
         backups:
           enabled: true
           credentials: s3
