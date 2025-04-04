@@ -100,9 +100,9 @@ spec:
       main:
         mode: recovery
         backups:
-          enabled: true
+          enabled: false
           credentials: s3
-          revision: "1"
+          revision: "2"
           scheduledBackups:
             - name: daily-backup
               schedule: "0 30 1 * * *"
@@ -112,7 +112,7 @@ spec:
         recovery:
           method: object_store
           credentials: s3
-          revision: ""
+          revision: "1"
     nextcloud:
       credentials:
         initialAdminPassword: ${NEXTCLOUD_PWD}
