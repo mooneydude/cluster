@@ -74,3 +74,5 @@ spec:
     # cnpg:
     #   main:
     #     enabled: false
+    customDns:
+      mail.gulfcoastlifeinsurance.com: 192.168.68.134
