@@ -81,5 +81,5 @@ spec:
       # - in: something.com
       #   out: somethingelse.com
       mapping:
-      - domain: "${DOMAIN_3}"
+      - domain: ${DOMAIN_3}
         dnsserver: ${COW_IP}
