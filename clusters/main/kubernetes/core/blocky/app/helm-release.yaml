@@ -79,5 +79,3 @@ spec:
     # cnpg:
     #   main:
     #     enabled: false
-    defaultUpstreams:
-      - 192.168.68.1
