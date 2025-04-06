@@ -84,3 +84,7 @@ spec:
       mapping:
       - domain: "${DOMAIN_3}"
         dnsserver: ${COW_IP}
+      - domain: "*.${DOMAIN_0}"
+        dnsserver: ${COW_IP}
+
+
