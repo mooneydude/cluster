@@ -74,9 +74,5 @@ spec:
     # cnpg:
     #   main:
     #     enabled: false
-
-    # -- Blocky Config File content
-    blockyConfig: {}
-    upstream:
-      default:
-        - 192.168.68.1
+    defaultUpstreams:
+      - 192.168.68.1
