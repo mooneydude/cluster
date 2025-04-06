@@ -74,12 +74,13 @@ spec:
     # cnpg:
     #   main:
     #     enabled: false
-    customDNS:
-      customTTL: 1h
-      filterUnmappedTypes: true
-      rewrite: []
-      # - in: something.com
-      #   out: somethingelse.com
-      mapping:
-      - domain: "${DOMAIN_3}"
-        dnsserver: ${COW_IP}
+
+    # customDNS:
+    #   customTTL: 1h
+    #   filterUnmappedTypes: true
+    #   rewrite: []
+    #   # - in: something.com
+    #   #   out: somethingelse.com
+    #   mapping:
+    #   - domain: "${DOMAIN_3}"
+    #     dnsserver: ${COW_IP}
