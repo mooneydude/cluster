@@ -52,7 +52,10 @@ spec:
         dnsChallenge:
           enabled: false
           domain: dns01.clouddns.com
-
+      - domain: "${DOMAIN_4}"
+        dnsChallenge:
+          enabled: false
+          domain: dns01.clouddns.com
       forward:
         enabled: false
         primary: tls://1.1.1.1
@@ -86,6 +89,6 @@ spec:
         dnsserver: ${COW_IP}
       - domain: "${DOMAIN_3}"
         dnsserver: ${COW_IP}
-      - domain: "${DOMAIN_4}"
+      - domain: "${DOMAIN_5}"
         dnsserver: ${COW_IP}        
 
