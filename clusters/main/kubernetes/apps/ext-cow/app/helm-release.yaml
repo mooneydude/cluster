@@ -40,7 +40,6 @@ spec:
           main:
             protocol: https
             port: 4443
-
     ingress:
       main:
         enabled: true
