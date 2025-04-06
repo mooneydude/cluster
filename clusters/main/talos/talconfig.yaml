@@ -26,8 +26,8 @@ nodes:
       ipAddress: ${MASTER1IP_IP}
       controlPlane: true
       nameservers:
-        - 192.168.68.1
         - 1.1.1.1
+        - 8.8.8.8
       installDiskSelector:
         size: <= 1600GB
       networkInterfaces:
@@ -44,8 +44,8 @@ nodes:
       ipAddress: ${MASTER2IP_IP}
       controlPlane: true
       nameservers:
-        - 192.168.68.1     
         - 1.1.1.1
+        - 8.8.8.8
       installDiskSelector:
         size: <= 1TB
       networkInterfaces:
@@ -62,8 +62,8 @@ nodes:
       ipAddress: ${MASTER3IP_IP}
       controlPlane: true
       nameservers:
-        - 192.168.68.1
         - 1.1.1.1
+        - 8.8.8.8
       installDiskSelector:
         size: <= 1TB
       schematic:
@@ -84,23 +84,23 @@ nodes:
     - hostname: k8s-worker-1
       ipAddress: 192.168.68.131
       nameservers:
-        - 192.168.68.1
         - 1.1.1.1
+        - 8.8.8.8
       installDiskSelector:
         # size: <= 600GB
         model: Fan*
     - hostname: k8s-worker-2
       ipAddress: 192.168.68.128
       nameservers:
-        - 192.168.68.1
         - 1.1.1.1
+        - 8.8.8.8
       installDiskSelector:
         size: '> 200GB'
     - hostname: k8s-worker-3
       ipAddress: 192.168.68.130
       nameservers:
-        - 192.168.68.1
         - 1.1.1.1
+        - 8.8.8.8
       installDiskSelector:
         size: <= 200GB
       schematic:
