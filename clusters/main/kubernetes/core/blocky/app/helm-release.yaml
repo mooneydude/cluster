@@ -78,11 +78,6 @@ spec:
     #   main:
     #     enabled: false
     customDNS:
-      customTTL: 1h
-      filterUnmappedTypes: true
-      rewrite: []
-      # - in: something.com
-      #   out: somethingelse.com
       mapping:
       - domain: "${DOMAIN_0}"
         dnsserver: ${COW_IP}
