@@ -74,7 +74,7 @@ spec:
               volumeSnapshotClassName: csi-ceph-blockpool
               enabled: true
               trigger:
-                schedule: 50 16 * * *
+                schedule: 50 17 * * *
       html:
         storageClass: ceph-nvme
         size: 10Gi
@@ -91,7 +91,7 @@ spec:
               volumeSnapshotClassName: csi-ceph-blockpool
               enabled: true
               trigger:
-                schedule: 55 16 * * *
+                schedule: 55 17 * * *
       data:
         type: nfs
         server: ${TRUENAS_IP}
@@ -106,7 +106,7 @@ spec:
           revision: "1"
           scheduledBackups:
             - name: daily-backup
-              schedule: "0 0 17 * * *"
+              schedule: "0 0 18 * * *"
               backupOwnerReference: self
               immediate: true
               suspend: false 
@@ -132,7 +132,10 @@ spec:
         - OpenDocument
         - PNG
         - TXT
-        - XBitmap        
+        - XBitmap
+    podOptions:
+        nodeSelector:
+            kubernetes.io/hostname: "k8s-worker-2"                
     # workload:
     #   main:
     #     type: Deployment
