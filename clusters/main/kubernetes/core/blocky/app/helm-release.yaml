@@ -90,5 +90,7 @@ spec:
       - domain: "${DOMAIN_3}"
         dnsserver: ${COW_IP}
       - domain: "${DOMAIN_5}"
-        dnsserver: ${COW_IP}        
+        dnsserver: ${COW_IP}
+      - domain: "plex.{DOMAIN_1}"
+        dnsserver: ${PLEX_IP}        
 
