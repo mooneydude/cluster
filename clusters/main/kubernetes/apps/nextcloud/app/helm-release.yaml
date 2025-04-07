@@ -59,61 +59,61 @@ spec:
             enabled: true
     persistence:
       config:
-        storageClass: ceph-nvme
+        storageClass: ceph-filesystem
         size: 1Gi
         # accessModes:
         #   - ReadWriteMany        
-        volsync:
-          - name: config
-            type: restic
-            credentials: s3
-            dest:
-              volumeSnapshotClassName: csi-ceph-blockpool
-              enabled: true
-            src:
-              volumeSnapshotClassName: csi-ceph-blockpool
-              enabled: true
-              trigger:
-                schedule: 50 17 * * *
+        # volsync:
+        #   - name: config
+        #     type: restic
+        #     credentials: s3
+        #     dest:
+        #       volumeSnapshotClassName: csi-ceph-blockpool
+        #       enabled: true
+        #     src:
+        #       volumeSnapshotClassName: csi-ceph-blockpool
+        #       enabled: true
+        #       trigger:
+        #         schedule: 50 17 * * *
       html:
-        storageClass: ceph-nvme
+        storageClass: ceph-filesystem
         size: 10Gi
-        # accessModes:
-        #   - ReadWriteMany        
-        volsync:
-          - name: html
-            type: restic
-            credentials: s3
-            dest:
-              volumeSnapshotClassName: csi-ceph-blockpool
-              enabled: true
-            src:
-              volumeSnapshotClassName: csi-ceph-blockpool
-              enabled: true
-              trigger:
-                schedule: 55 17 * * *
+        accessModes:
+          - ReadWriteMany        
+        # volsync:
+        #   - name: html
+        #     type: restic
+        #     credentials: s3
+        #     dest:
+        #       volumeSnapshotClassName: csi-ceph-blockpool
+        #       enabled: true
+        #     src:
+        #       volumeSnapshotClassName: csi-ceph-blockpool
+        #       enabled: true
+        #       trigger:
+        #         schedule: 55 17 * * *
       data:
         type: nfs
         server: ${TRUENAS_IP}
         path: /mnt/data1/nc_userdata
-    cnpg:
-      main:
-        hibernate: false
-        # mode: recovery
-        backups:
-          enabled: true
-          credentials: s3
-          revision: ""
-          scheduledBackups:
-            - name: daily-backup
-              schedule: "0 0 18 * * *"
-              backupOwnerReference: self
-              immediate: true
-              suspend: false 
-        recovery:
-          # method: object_store
-          # credentials: s3
-          # revision: ""
+    # cnpg:
+    #   main:
+    #     hibernate: false
+    #     # mode: recovery
+    #     backups:
+    #       enabled: true
+    #       credentials: s3
+    #       revision: ""
+    #       scheduledBackups:
+    #         - name: daily-backup
+    #           schedule: "0 0 18 * * *"
+    #           backupOwnerReference: self
+    #           immediate: true
+    #           suspend: false 
+    #     recovery:
+    #       # method: object_store
+    #       # credentials: s3
+    #       # revision: ""
     nextcloud:
       credentials:
         initialAdminPassword: ${NEXTCLOUD_PWD}
@@ -133,60 +133,57 @@ spec:
         - PNG
         - TXT
         - XBitmap
-    podOptions:
-        nodeSelector:
-            kubernetes.io/hostname: "k8s-worker-2"                
-    # workload:
-    #   main:
-    #     type: Deployment
-    #     strategy: RollingUpdate
-    #     replicas: 2
-    #     podSpec:
-    #       containers:
-    #         main:
-    #           enabled: true
-    #           primary: true
-    #           envFrom:
-    #             - configMapRef:
-    #                 name: nextcloud-config
-    #           probes:
-    #             liveness:
-    #               enabled: true
-    #               type: exec
-    #               command: /healthcheck.sh
-    #             readiness:
-    #               enabled: true
-    #               type: exec
-    #               command: /healthcheck.sh
-    #             startup:
-    #               enabled: true
-    #               type: tcp
-    #               port: "{{ .Values.service.nextcloud.ports.nextcloud.targetPort }}"
-    #   nginx:
-    #     enabled: true
-    #     type: Deployment
-    #     strategy: RollingUpdate
-    #     replicas: 2
-    #     podSpec:
-    #       containers:
-    #         nginx:
-    #           enabled: true
-    #           primary: true
-    #           imageSelector: nginxImage
-    #           probes:
-    #             readiness:
-    #               enabled: true
-    #               path: /robots.txt
-    #               port: "{{ .Values.service.main.ports.main.port }}"
-    #               httpHeaders:
-    #                 Host: kube.internal.healthcheck
-    #             liveness:
-    #               enabled: true
-    #               path: /robots.txt
-    #               port: "{{ .Values.service.main.ports.main.port }}"
-    #               httpHeaders:
-    #                 Host: kube.internal.healthcheck
-    #             startup:
-    #               enabled: true
-    #               type: tcp
-    #               port: "{{ .Values.service.main.ports.main.port }}"
+    workload:
+      main:
+        type: Deployment
+        strategy: RollingUpdate
+        replicas: 2
+        podSpec:
+          containers:
+            main:
+              enabled: true
+              primary: true
+              envFrom:
+                - configMapRef:
+                    name: nextcloud-config
+              probes:
+                liveness:
+                  enabled: true
+                  type: exec
+                  command: /healthcheck.sh
+                readiness:
+                  enabled: true
+                  type: exec
+                  command: /healthcheck.sh
+                startup:
+                  enabled: true
+                  type: tcp
+                  port: "{{ .Values.service.nextcloud.ports.nextcloud.targetPort }}"
+      nginx:
+        enabled: true
+        type: Deployment
+        strategy: RollingUpdate
+        replicas: 2
+        podSpec:
+          containers:
+            nginx:
+              enabled: true
+              primary: true
+              imageSelector: nginxImage
+              probes:
+                readiness:
+                  enabled: true
+                  path: /robots.txt
+                  port: "{{ .Values.service.main.ports.main.port }}"
+                  httpHeaders:
+                    Host: kube.internal.healthcheck
+                liveness:
+                  enabled: true
+                  path: /robots.txt
+                  port: "{{ .Values.service.main.ports.main.port }}"
+                  httpHeaders:
+                    Host: kube.internal.healthcheck
+                startup:
+                  enabled: true
+                  type: tcp
+                  port: "{{ .Values.service.main.ports.main.port }}"
