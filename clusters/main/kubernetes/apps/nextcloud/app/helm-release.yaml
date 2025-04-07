@@ -35,11 +35,11 @@ spec:
     credentials:
       s3:
         type: s3
-        url: "${S3URL}"
-        bucket: "${S3PREFIX}-nc1"
-        accessKey: "${S3ID}"
-        secretKey: "${S3KEY}"
-        encrKey: "${S3KEY}"
+        url: "${MINIO_S3URL}"
+        bucket: "${MINIO_S3PREFIX}-nc1"
+        accessKey: "${MINIO_S3ID}"
+        secretKey: "${MINIO_S3KEY}"
+        encrKey: "${MINIO_S3KEY}"
     ingress:
       main:
         enabled: true
@@ -59,7 +59,7 @@ spec:
             enabled: true
     persistence:
       config:
-        storageClass: ceph-filesystem
+        storageClass: csi-ceph-blockpool
         size: 1Gi
         accessModes:
           - ReadWriteMany        
@@ -68,15 +68,15 @@ spec:
             type: restic
             credentials: s3
             dest:
-              volumeSnapshotClassName: ceph-filesystem
+              volumeSnapshotClassName: csi-ceph-blockpool
               enabled: true
             src:
-              volumeSnapshotClassName: ceph-filesystem
+              volumeSnapshotClassName: csi-ceph-blockpool
               enabled: true
               trigger:
-                schedule: 20 1 * * *
+                schedule: 0 15 * * *
       html:
-        storageClass: ceph-filesystem
+        storageClass: csi-ceph-blockpool
         size: 10Gi
         accessModes:
           - ReadWriteMany        
@@ -85,34 +85,35 @@ spec:
             type: restic
             credentials: s3
             dest:
-              volumeSnapshotClassName: ceph-filesystem
+              volumeSnapshotClassName: csi-ceph-blockpool
               enabled: true
             src:
-              volumeSnapshotClassName: ceph-filesystem
+              volumeSnapshotClassName: csi-ceph-blockpool
               enabled: true
               trigger:
-                schedule: 20 1 * * *
+                schedule: 0 15 * * *
       data:
         type: nfs
         server: ${TRUENAS_IP}
         path: /mnt/data1/nc_userdata
     cnpg:
       main:
-        mode: recovery
+        hibernate: false
+        # mode: recovery
         backups:
-          enabled: false
+          enabled: true
           credentials: s3
-          revision: "2"
+          revision: "1"
           scheduledBackups:
             - name: daily-backup
-              schedule: "0 30 1 * * *"
+              schedule: "0 30 15 * * *"
               backupOwnerReference: self
               immediate: true
               suspend: false 
         recovery:
-          method: object_store
-          credentials: s3
-          revision: "1"
+          # method: object_store
+          # credentials: s3
+          # revision: "1"
     nextcloud:
       credentials:
         initialAdminPassword: ${NEXTCLOUD_PWD}
