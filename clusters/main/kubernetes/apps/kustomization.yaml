@@ -8,8 +8,8 @@ resources:
   - hass/ks.yaml
   - vaultwarden/ks.yaml
   - xteve/ks.yaml
-  # - nextcloud/ks.yaml
+  - nextcloud/ks.yaml
   - grafana/ks.yaml
-  # - docuseal/ks.yaml
+  - docuseal/ks.yaml
   - speedtest-tracker/ks.yaml
   - nc-talk/ks.yaml
