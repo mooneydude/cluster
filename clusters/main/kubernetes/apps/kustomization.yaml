@@ -5,7 +5,7 @@ resources:
   - cloudflared/ks.yaml
   - xepg/ks.yaml
   - jellyfin/ks.yaml
-  # - hass/ks.yaml
+  - hass/ks.yaml
   - vaultwarden/ks.yaml
   - xteve/ks.yaml
   # - nextcloud/ks.yaml
