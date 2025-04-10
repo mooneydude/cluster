@@ -46,7 +46,7 @@ spec:
         enabled: true
         ingressClass: internal
         hosts:
-          - host: pfsens.${DOMAIN_1}
+          - host: pfsense.${DOMAIN_1}
         integrations:
           traefik:
             enabled: false
