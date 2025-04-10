@@ -40,6 +40,9 @@ spec:
           main:
             protocol: http
             port: 80
+          ntopng:
+            protocol: http
+            port: 3000            
 
     ingress:
       main:
