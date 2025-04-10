@@ -38,11 +38,11 @@ spec:
         externalIP: ${COW_IP}
         ports:
           main:
-            protocol: https
-            port: 443
-          http:
             protocol: http
             port: 80
+          # http:
+          #   protocol: http
+          #   port: 80
     ingress:
       main:
         enabled: true
