@@ -37,10 +37,10 @@ spec:
         externalIP: "192.168.68.1"
         ports:
           main:
-            protocol: http
+            protocol: tcp
             port: 80
           ntopng:
-            protocol: http
+            protocol: tcp
             port: 3000            
     ingress:
       main:
