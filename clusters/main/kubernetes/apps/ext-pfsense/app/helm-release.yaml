@@ -31,7 +31,6 @@ spec:
     keepHistory: false
   values:
     TZ: America/Chicago
-
     service:
       main:
         type: ExternalIP
@@ -43,7 +42,6 @@ spec:
           ntopng:
             protocol: http
             port: 3000            
-
     ingress:
       main:
         enabled: true
