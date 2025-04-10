@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: ext-truenas
-  namespace: ext-truenas
+  name: ext-cow
+  namespace: ext-cow
 spec:
   interval: 15m
   chart:
