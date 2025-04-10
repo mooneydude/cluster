@@ -88,5 +88,8 @@ spec:
       - domain: "${DOMAIN_5}"
         dnsserver: ${COW_IP}
       - domain: plex.${DOMAIN_1}
-        dnsserver: ${PLEX_IP}   
+        dnsserver: ${PLEX_IP}
+      - domain: router.${DOMAIN_1}
+        dnsserver: ${GATEWAY}
+      
 
