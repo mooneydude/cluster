@@ -48,6 +48,8 @@ spec:
         enabled: true
         ingressClassName: external
         hosts:
+          - host: "${DOMAIN_3}"
+          - host: "${DOMAIN_5}"
           - host: "${DOMAIN_6}"
         integrations:
           traefik:
