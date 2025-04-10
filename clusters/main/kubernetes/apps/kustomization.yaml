@@ -13,4 +13,4 @@ resources:
   - docuseal/ks.yaml
   - speedtest-tracker/ks.yaml
   - nc-talk/ks.yaml
-  - ext-cow/ks.yaml
+  # - ext-cow/ks.yaml
