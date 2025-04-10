@@ -38,8 +38,8 @@ spec:
         externalIP: "192.168.68.1"
         ports:
           main:
-            protocol: http
-            port: 80
+            protocol: https
+            port: 443
 
     ingress:
       main:
