@@ -14,4 +14,4 @@ resources:
   - speedtest-tracker/ks.yaml
   - nc-talk/ks.yaml
   - ext-cow/ks.yaml
-  # - ext-pfsense/ks.yaml
+  - ext-pfsense/ks.yaml
