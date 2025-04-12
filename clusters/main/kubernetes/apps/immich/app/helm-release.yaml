@@ -40,7 +40,7 @@ spec:
         enabled: true
         ingressClassName: internal
         hosts:
-          - host: photos.${DOMAIN_1}
+          - host: pics.${DOMAIN_1}
         integrations:
           traefik:
             enabled: false
