@@ -47,3 +47,38 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: cloudflare
+    persistence:
+      # profile:
+      #   volsync:
+      #     - name: prf
+      #       type: restic
+      #       credentials: backblaze
+      #       dest:
+      #         enabled: true
+      #       src:
+      #         enabled: true
+      # thumbs:
+      #   volsync:
+      #     - name: thn
+      #       type: restic
+      #       credentials: backblaze
+      #       dest:
+      #         enabled: true
+      #       src:
+      #         enabled: true
+      backups:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/backups
+      library:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/library
+      uploads:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/upload
+      video:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/encoded-video            
