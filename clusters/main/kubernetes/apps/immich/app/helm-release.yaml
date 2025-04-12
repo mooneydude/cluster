@@ -81,4 +81,9 @@ spec:
       video:
         type: nfs
         server: ${TRUENAS_IP}
-        path: /mnt/data1/immich/encoded-video            
+        path: /mnt/data1/immich/encoded-video
+      test:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/test
+                
