@@ -82,12 +82,7 @@ spec:
         type: nfs
         server: ${TRUENAS_IP}
         path: /mnt/data1/immich/encoded-video
-    additionalVolumes:
-      - name: external-library
-        nfs:
-          server: ${TRUENAS_IP}
-          path: /mnt/data1/immich/test
-    additionalVolumeMounts:
-      - name: external-library
-        mountPath: /usr/src/app/external/test
-        readOnly: true          
+      external:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/test
