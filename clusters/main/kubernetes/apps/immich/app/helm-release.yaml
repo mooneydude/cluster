@@ -89,5 +89,5 @@ spec:
           path: /mnt/data1/immich/test
     additionalVolumeMounts:
       - name: external-library
-        mountPath: /mnt/media/test
+        mountPath: /usr/src/app/external/test
         readOnly: true
