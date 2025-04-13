@@ -87,4 +87,5 @@ spec:
         type: nfs
         server: ${TRUENAS_IP}
         path: /mnt/data1/immich/test
+        mountPath: /usr/src/app/external/test
         
