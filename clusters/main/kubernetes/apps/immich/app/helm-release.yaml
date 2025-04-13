@@ -82,10 +82,10 @@ spec:
         type: nfs
         server: ${TRUENAS_IP}
         path: /mnt/data1/immich/encoded-video
-      external-pics:
-        enabled: true
-        type: nfs
-        server: ${TRUENAS_IP}
-        path: /mnt/data1/immich/test
-        mountPath: /usr/src/app/external/test
+      # external-pics:
+      #   enabled: true
+      #   type: nfs
+      #   server: ${TRUENAS_IP}
+      #   path: /mnt/data1/immich/test
+      #   mountPath: /usr/src/app/external/test
         
