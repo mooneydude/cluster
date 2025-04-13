@@ -16,4 +16,4 @@ resources:
   - ext-cow/ks.yaml
   - ext-pfsense/ks.yaml
   - ext-ntopng/ks.yaml
-  - immich/ks.yaml
+  # - immich/ks.yaml
