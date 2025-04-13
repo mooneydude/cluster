@@ -47,7 +47,7 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: cloudflare
-    # persistence:
+    persistence:
       # profile:
       #   volsync:
       #     - name: prf
