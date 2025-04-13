@@ -90,4 +90,10 @@ spec:
         server: ${TRUENAS_IP}
         path: /mnt/data1/media
         mountPath: /usr/src/app/external
+        targetSelector:
+          # Main pod/container is server
+          main:
+            main: {}
+          microservices:
+            microservices: {}
         
