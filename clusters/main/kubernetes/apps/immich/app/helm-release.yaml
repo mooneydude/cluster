@@ -88,6 +88,6 @@ spec:
         enabled: true
         type: nfs
         server: ${TRUENAS_IP}
-        path: /mnt/data1/immich/test
+        path: /mnt/data1/media
         mountPath: /usr/src/app/external
         
