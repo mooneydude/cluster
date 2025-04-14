@@ -67,22 +67,22 @@ spec:
       #       src:
       #         enabled: true
 
-      # backups:
-      #   type: nfs
-      #   server: ${TRUENAS_IP}
-      #   path: /mnt/data1/immich/backups
-      # library:
-      #   type: nfs
-      #   server: ${TRUENAS_IP}
-      #   path: /mnt/data1/immich/library
-      # uploads:
-      #   type: nfs
-      #   server: ${TRUENAS_IP}
-      #   path: /mnt/data1/immich/upload
-      # video:
-      #   type: nfs
-      #   server: ${TRUENAS_IP}
-      #   path: /mnt/data1/immich/encoded-video
+      backups:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/backups
+      library:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/library
+      uploads:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/upload
+      video:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: /mnt/data1/immich/encoded-video
 
       external-pics:
         enabled: true
